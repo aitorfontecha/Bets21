@@ -1,0 +1,29 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-04-21 13:20:39 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 17-22)
+
+[2021-04-21 13:20:39 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 18344@AITOR-DESKTOP
+
+[2021-04-21 13:20:39 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-04-21 13:20:39 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-04-21 13:20:39 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-04-21 13:20:39 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-04-21 13:20:39 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-04-21 13:20:39 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-04-21 13:20:39 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
