@@ -52,19 +52,15 @@ public class ErabiltzaileaKopiatuGUI extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Aukeratu kopiatu nahi duzun bezeroaren izena:");
-		lblNewLabel.setBounds(20, 47, 348, 28);
+		lblNewLabel.setBounds(30, 35, 348, 28);
 		contentPane.add(lblNewLabel);
 
 		JButton kopiatuButton = new JButton("Kopiatu erabiltzailea.");
 		kopiatuButton.setBackground(Color.WHITE);
-		kopiatuButton.setBounds(133, 216, 170, 21);
+		kopiatuButton.setBounds(132, 192, 170, 21);
 		contentPane.add(kopiatuButton);
 
 		DefaultListModel model = new DefaultListModel<>();
-		JList erabiltzaileList = new JList(model);
-		erabiltzaileList.setBounds(20, 76, 412, 128);
-		contentPane.add(erabiltzaileList);
-		erabiltzaileList.setBackground(SystemColor.textHighlight);
 		
 		JButton buttonAtzera = new JButton("Atzera");
 		buttonAtzera.addActionListener(new ActionListener() {
@@ -76,11 +72,28 @@ public class ErabiltzaileaKopiatuGUI extends JFrame {
 		buttonAtzera.setBounds(6, 6, 77, 29);
 		contentPane.add(buttonAtzera);
 
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 62, 415, 107);
+		contentPane.add(scrollPane);
+		JList erabiltzaileList = new JList(model);
+		scrollPane.setViewportView(erabiltzaileList);
+		erabiltzaileList.setBackground(new Color(100, 149, 237));
+
+		JLabel error = new JLabel("New label");
+		error.setHorizontalAlignment(SwingConstants.CENTER);
+		error.setForeground(Color.GREEN);
+		error.setBounds(6, 223, 415, 13);
+		contentPane.add(error);
+		error.setVisible(false);
+
 		List<Pertsona> bezeroak = bl.getBezeroak();
-		for(Pertsona p : bezeroak)
-			if (!p.getErabiltzailea().equals("admin")) {
+		for(Pertsona p : bezeroak) {
+			System.out.println(p.getErabiltzailea());
+			if (!p.getErabiltzailea().equals("admin") && !p.getErabiltzailea().equals(bl.getUser())) {
 				model.addElement(p);
 			}
+		}
+
 
 
 
@@ -89,8 +102,14 @@ public class ErabiltzaileaKopiatuGUI extends JFrame {
 				if(!erabiltzaileList.isSelectionEmpty()) {
 					Bezero kop = (Bezero) erabiltzaileList.getSelectedValue();
 					bl.kopiatu(kop,bl.getPertsona(bl.getUser()));
+					error.setText("Erabiltzailea kopiatu da.");
+					error.setVisible(true);
+					
+				} else {
+					error.setText("Ez da erabiltzailerik aukeratu.");
+					error.setForeground(Color.RED);
+					error.setVisible(true);
 				}
-
 			}
 		});
 

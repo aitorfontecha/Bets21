@@ -34,6 +34,7 @@ import configuration.UtilDate;
 import domain.Event;
 import domain.Pronostikoa;
 import domain.Question;
+import javax.swing.SwingConstants;
 
 public class GertaeraEzabatuGUI extends JFrame {
 
@@ -56,6 +57,7 @@ public class GertaeraEzabatuGUI extends JFrame {
 	private JLabel jLabelError = new JLabel();
 
 	private List<Date> datesWithEventsCurrentMonth = new Vector<Date>();
+	private final JLabel error = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("GertaeraEzabatuGUI.lblNewLabel.text")); //$NON-NLS-1$ //$NON-NLS-2$
 
 	public GertaeraEzabatuGUI() {
 		
@@ -188,13 +190,22 @@ public class GertaeraEzabatuGUI extends JFrame {
 		
 		buttonEzabatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int eNum = jComboBoxEvents.getSelectedIndex();
-				Event ev = jComboBoxEvents.getItemAt(eNum);
-				bl.deleteEvent(ev);
+				try {
+					int eNum = jComboBoxEvents.getSelectedIndex();
+					Event ev = jComboBoxEvents.getItemAt(eNum);
+					bl.deleteEvent(ev);
+				}catch (Exception ex){
+					error.setVisible(true);
+				}
 			}
 		});
 		buttonEzabatu.setBounds(257, 267, 140, 60);
 		getContentPane().add(buttonEzabatu);
+		error.setHorizontalAlignment(SwingConstants.CENTER);
+		error.setForeground(Color.RED);
+		error.setBounds(218, 337, 216, 13);
+		error.setVisible(false);
+		getContentPane().add(error);
 
 
 	}
