@@ -1488,3 +1488,29 @@ Type domain.Bezero is not enhanced.
 [2021-05-10 15:33:42 #8 type] 
 Type domain.Administratzaile is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 19:17:45 #1 store] 
+Database 'C:\Users\aitor\Desktop\SIWorkspace\Bets21\src\main\resources\bets.temp' is opened by 8740@AITOR-DESKTOP
+
+[2021-05-10 19:17:46 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 19:17:47 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 19:17:47 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 19:17:47 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 19:17:47 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 19:17:47 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 19:17:47 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
