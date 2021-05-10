@@ -35,9 +35,7 @@ public class Pronostikoa implements Serializable {
 
     
     public Pronostikoa() {
-    	
     	super();
-    	System.out.println("Pronostikoa sortuta.");
     }
     public Pronostikoa(String aukera,double kuota){
     	System.out.println("Pronostikoa sortuta.");

@@ -241,15 +241,18 @@ public class ApostuEginGUI extends JFrame {
 					int index1 = jComboBoxQuestions.getSelectedIndex();
 					Question g = jComboBoxQuestions.getItemAt(index1);
 					if (p!=null && textFieldDiruKop!=null && g!=null) {
-						bl.apustuaEgin(p, dirukop, bl.getUser());
-						GordetaMensaje.setVisible(true);
+						Boolean ap=bl.apustuaEgin(p, dirukop, bl.getUser());
+						if(ap) {
+							GordetaMensaje.setVisible(true);
+						} else {
+							ErroreMensaje.setText("Ez daukazu dirurik.");
+							ErroreMensaje.setVisible(true);
+						}
 					}
 					else {
 						System.out.println("Zerbait ez duzu aukeratu");
+						ErroreMensaje.setVisible(true);
 					}
-				}
-				else {
-					ErroreMensaje.setVisible(true);
 				}
 			}
 		});
@@ -260,7 +263,7 @@ public class ApostuEginGUI extends JFrame {
 		getContentPane().add(buttonGorde);
 
 		jComboBoxPronostikoak.setModel(modelPronostikoak);
-		jComboBoxPronostikoak.setBounds(295, 196, 240, 27);
+		jComboBoxPronostikoak.setBounds(285, 196, 250, 27);
 		getContentPane().add(jComboBoxPronostikoak);
 
 		JLabel Pronostikoa = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("EmaitzaIpiniGUI.lblNewLabel.text")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -268,7 +271,7 @@ public class ApostuEginGUI extends JFrame {
 		getContentPane().add(Pronostikoa);
 
 		textFieldDiruKop = new JTextField();
-		textFieldDiruKop.setBounds(191, 257, 130, 26);
+		textFieldDiruKop.setBounds(135, 258, 130, 26);
 		getContentPane().add(textFieldDiruKop);
 		textFieldDiruKop.setColumns(10);
 		lblNewLabel_1.setBounds(50, 262, 130, 16);

@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class DiruaSartuGUI extends JFrame {
 
@@ -63,17 +64,19 @@ public class DiruaSartuGUI extends JFrame {
 		labelErrorea.setBounds(261, 388, 172, 16);
 		getContentPane().add(labelErrorea);
 		labelErrorea.setVisible(false);
-		
-		JLabel labelGordeta = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("EmaitzaIpiniGUI.lblNewLabel_2.text")); //$NON-NLS-1$ //$NON-NLS-2$
-		labelGordeta.setForeground(Color.GREEN);
-		labelGordeta.setBounds(320, 406, 99, 16);
-		getContentPane().add(labelGordeta);
-		labelGordeta.setVisible(false);
+
 		
 		textFieldDiru = new JTextField();
 		textFieldDiru.setBounds(203, 105, 130, 26);
 		contentPane.add(textFieldDiru);
 		textFieldDiru.setColumns(10);
+
+		JLabel ok_Label = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("DiruaSartuGUI.lblNewLabel_2.text"));
+		ok_Label.setHorizontalAlignment(SwingConstants.CENTER);
+		ok_Label.setForeground(Color.GREEN);
+		ok_Label.setBounds(35, 141, 361, 13);
+		contentPane.add(ok_Label);
+		ok_Label.setVisible(false);
 		
 		jButtonClose.setBounds(new Rectangle(6, 6, 69, 30));
 
@@ -94,7 +97,8 @@ public class DiruaSartuGUI extends JFrame {
 					String username = bl.getUser();
 					boolean em= bl.diruaSartu(dirukop, username);
 					if (em) {
-						labelGordeta.setVisible(true);
+						ok_Label.setText(dirukop + " euro gehitu dira kontuan.");
+						ok_Label.setVisible(true);
 					}
 					else {
 						labelErrorea.setVisible(true);
@@ -111,6 +115,8 @@ public class DiruaSartuGUI extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("DiruaSartuGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 		lblNewLabel_1.setBounds(35, 60, 246, 38);
 		contentPane.add(lblNewLabel_1);
+		
+
 		
 		
 		

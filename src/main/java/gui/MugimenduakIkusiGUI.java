@@ -22,6 +22,8 @@ import domain.Pertsona;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import java.awt.SystemColor;
+import javax.swing.JScrollPane;
+import java.awt.Color;
 
 public class MugimenduakIkusiGUI extends JFrame {
 
@@ -70,32 +72,19 @@ public class MugimenduakIkusiGUI extends JFrame {
 		
 
 		JLabel lblNewLabel = new JLabel("Dirua:");
-		lblNewLabel.setBounds(48, 110, 47, 16);
+		lblNewLabel.setBounds(48, 104, 47, 16);
 		contentPane.add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Apustuak:");
-		lblNewLabel_1.setBounds(46, 138, 83, 16);
-		contentPane.add(lblNewLabel_1);
-
 		JLabel lblNewLabel_2 = new JLabel("Izena:");
-		lblNewLabel_2.setBounds(48, 71, 47, 16);
+		lblNewLabel_2.setBounds(48, 65, 47, 16);
 		contentPane.add(lblNewLabel_2);
 
 		
 		DefaultListModel model1= new DefaultListModel<>();
-		JList apustuList = new JList(model1);
-		apustuList.setVisibleRowCount(50);
-		apustuList.setBackground(SystemColor.textHighlight);
-		apustuList.setBounds(48, 166, 166, 100);
-		contentPane.add(apustuList);
 		
 		
 		
 		DefaultListModel model2= new DefaultListModel<>();
-		JList diruList = new JList(model2);
-		diruList.setBackground(SystemColor.textHighlight);
-		diruList.setBounds(250, 166, 174, 101);
-		contentPane.add(diruList);
 
 		Bezero p =bl.getPertsona(bl.getUser());
 		double dirukop = p.getDiruKop();
@@ -127,9 +116,26 @@ public class MugimenduakIkusiGUI extends JFrame {
 		lblNewLabel_6.setBounds(157, 6, 174, 36);
 		contentPane.add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_3 = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MugimenduakIkusiGUI.lblNewLabel_3.text")); //$NON-NLS-1$ //$NON-NLS-2$
-		lblNewLabel_3.setBounds(240, 138, 116, 16);
-		contentPane.add(lblNewLabel_3);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(23, 136, 167, 110);
+		contentPane.add(scrollPane);
+		JList apustuList = new JList(model1);
+		scrollPane.setViewportView(apustuList);
+		apustuList.setVisibleRowCount(50);
+		apustuList.setBackground(new Color(100, 149, 237));
+		
+				JLabel lblNewLabel_1 = new JLabel("Apustuak:");
+				scrollPane.setColumnHeaderView(lblNewLabel_1);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(240, 136, 167, 110);
+		contentPane.add(scrollPane_1);
+		JList diruList = new JList(model2);
+		scrollPane_1.setViewportView(diruList);
+		diruList.setBackground(new Color(100, 149, 237));
+		
+		JLabel lblNewLabel_3 = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MugimenduakIkusiGUI.lblNewLabel_3.text"));
+		scrollPane_1.setColumnHeaderView(lblNewLabel_3);
 		
 		
 		lblNewLabel_6.setVisible(true);

@@ -86,7 +86,7 @@ public interface BLFacade {
 	public Event deleteEvent(Event gertaera);
 
 	@WebMethod
-	public Apostua apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username);
+	public Boolean apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username);
 
 	@WebMethod
 	public boolean diruaSartu(double diruKop, String username);
@@ -107,7 +107,7 @@ public interface BLFacade {
 	public Question deleteQuestion(Question galdera);
 	
 	@WebMethod
-	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username);
+	public Boolean apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username);
 
 	@WebMethod
 	public List<Pertsona> getBezeroak();

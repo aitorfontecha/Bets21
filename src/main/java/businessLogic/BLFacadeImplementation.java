@@ -8,6 +8,7 @@ import java.util.Vector;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.*;
@@ -190,9 +191,9 @@ public class BLFacadeImplementation implements BLFacade {
 	}
 	
 	@WebMethod
-	public Apostua apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username) {
+	public Boolean apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username) {
 		dbManager.open(false);
-		Apostua apo= dbManager.apustuaEgin(pronostikoa, diruKop, username);
+		Boolean apo= dbManager.apustuaEgin(pronostikoa, diruKop, username);
 		dbManager.close();
 		return apo;
 	}
@@ -241,11 +242,11 @@ public class BLFacadeImplementation implements BLFacade {
 	}
 	
 	@WebMethod
-	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {
+	public Boolean apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {
 		dbManager.open(false);
 		Apostua apo= dbManager.apostuAnitzaEgin(pronostikoak, diruKop, username);
 		dbManager.close();
-		return apo;
+		return true;
 	}
 
 	@WebMethod

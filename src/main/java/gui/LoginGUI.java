@@ -14,6 +14,8 @@ import javax.swing.border.EmptyBorder;
 
 import businessLogic.BLFacade;
 import domain.Pertsona;
+import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class LoginGUI extends JFrame {
 
@@ -73,25 +75,37 @@ public class LoginGUI extends JFrame {
 		password.setBounds(179, 128, 130, 26);
 		contentPane.add(password);
 
+		JLabel errorLabel = new JLabel("");
+		errorLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		errorLabel.setForeground(Color.RED);
+		errorLabel.setBounds(10, 173, 416, 13);
+		contentPane.add(errorLabel);
+		errorLabel.setVisible(false);
+
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String usernameText = username.getText();
-				String passText = new String(password.getPassword());
-				Pertsona p= bl.isLogin(usernameText, passText);
-				bl.setUser(p.getErabiltzailea());
-				if (p != null) { // Erabiltzailea existitzen da eta pasahitza zuzena da.
-					System.out.println("Erabiltzailea ondo sartu da");
-					if (p.getClass().getSimpleName().equals("Administratzaile")) { // Administratzaile moduan sartu
-						JFrame a = new AdminOptionGUI();
-						a.setVisible(true);
-					} else { // Erabiltzaile moduan sartu.
-						JFrame a = new GuestOptionGUI();
-						a.setVisible(true);
-					}
+				try {
+					String usernameText = username.getText();
+					String passText = new String(password.getPassword());
+					Pertsona p = bl.isLogin(usernameText, passText);
+					bl.setUser(p.getErabiltzailea());
+					if (p != null) { // Erabiltzailea existitzen da eta pasahitza zuzena da.
+						System.out.println("Erabiltzailea ondo sartu da");
+						if (p.getClass().getSimpleName().equals("Administratzaile")) { // Administratzaile moduan sartu
+							JFrame a = new AdminOptionGUI();
+							a.setVisible(true);
+						} else { // Erabiltzaile moduan sartu.
+							JFrame a = new GuestOptionGUI();
+							a.setVisible(true);
+						}
 
-				} else {
-					System.out.println("Erabiltzaile hori ez da existitzen");
+					}
+				}catch (NullPointerException ne){
+					System.out.println("Erabiltzaile hori ez dago datubasean edo pasahitza ez da zuzena.");
+					errorLabel.setText("Erabiltzaile hori ez dago datubasean edo pasahitza ez da zuzena.");
+					errorLabel.setVisible(true);
 				}
 			}
 		});
@@ -106,6 +120,7 @@ public class LoginGUI extends JFrame {
 		});
 		btnNewButton.setBounds(6, 6, 77, 29);
 		contentPane.add(btnNewButton);
+		
 
 	}
 

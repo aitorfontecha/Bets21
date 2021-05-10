@@ -114,7 +114,7 @@ public class GuestOptionGUI extends JFrame {
 		btnKopiatu.setBounds(141, 180, 156, 29);
 		contentPane.add(btnKopiatu);
 		
-		JButton buttonFamatuenak = new JButton(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.btnNewButton_2.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		JButton buttonFamatuenak = new JButton(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.buttonFamatuenak.text")); //$NON-NLS-1$ //$NON-NLS-2$
 		buttonFamatuenak.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame a = new ApostuFamatuenakGUI();

@@ -20,13 +20,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Vector;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,8 +31,6 @@ import configuration.UtilDate;
 import domain.Event;
 import domain.Pronostikoa;
 import domain.Question;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
 
 public class ApostuAnitzaEginGUI extends JFrame {
 
@@ -74,6 +66,7 @@ public class ApostuAnitzaEginGUI extends JFrame {
 	private final JLabel lblNewLabel_1 = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuEginGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 	private final JLabel ErroreMensaje = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuEginGUI.lblNewLabel.text")); //$NON-NLS-1$ //$NON-NLS-2$
 	private final JLabel GordetaMensaje = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuEginGUI.lblNewLabel_2.text")); //$NON-NLS-1$ //$NON-NLS-2$
+	private final JScrollPane scrollPane = new JScrollPane();
 
 	public ApostuAnitzaEginGUI() {
 
@@ -243,8 +236,13 @@ public class ApostuAnitzaEginGUI extends JFrame {
 					int index1 = jComboBoxQuestions.getSelectedIndex();
 					Question g = jComboBoxQuestions.getItemAt(index1);
 					if (p!=null && textFieldDiruKop!=null && g!=null) {
-						bl.apostuAnitzaEgin(pronostikoak, dirukop, bl.getUser());
-						GordetaMensaje.setVisible(true);
+						Boolean ap=bl.apostuAnitzaEgin(pronostikoak, dirukop, bl.getUser());
+						if(ap) {
+							GordetaMensaje.setVisible(true);
+						} else {
+							ErroreMensaje.setText("Ez daukazu dirurik.");
+							ErroreMensaje.setVisible(true);
+						}
 					}
 					else {
 						System.out.println("Zerbait ez duzu aukeratu");
@@ -257,12 +255,12 @@ public class ApostuAnitzaEginGUI extends JFrame {
 		});
 
 
-		buttonGorde.setBounds(273, 333, 130, 51);
+		buttonGorde.setBounds(380, 337, 130, 51);
 
 		getContentPane().add(buttonGorde);
 
 		jComboBoxPronostikoak.setModel(modelPronostikoak);
-		jComboBoxPronostikoak.setBounds(295, 196, 240, 27);
+		jComboBoxPronostikoak.setBounds(285, 196, 250, 27);
 		getContentPane().add(jComboBoxPronostikoak);
 
 		JLabel Pronostikoa = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("EmaitzaIpiniGUI.lblNewLabel.text")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -270,25 +268,33 @@ public class ApostuAnitzaEginGUI extends JFrame {
 		getContentPane().add(Pronostikoa);
 
 		textFieldDiruKop = new JTextField();
-		textFieldDiruKop.setBounds(191, 257, 130, 26);
+		textFieldDiruKop.setBounds(135, 258, 130, 26);
 		getContentPane().add(textFieldDiruKop);
 		textFieldDiruKop.setColumns(10);
 		lblNewLabel_1.setBounds(50, 262, 130, 16);
 
 		getContentPane().add(lblNewLabel_1);
 		ErroreMensaje.setForeground(Color.RED);
-		ErroreMensaje.setBounds(524, 144, 227, 16);
+		ErroreMensaje.setBounds(209, 431, 227, 16);
 		
 		getContentPane().add(ErroreMensaje);
 		GordetaMensaje.setForeground(Color.GREEN);
-		GordetaMensaje.setBounds(569, 161, 61, 16);
+		GordetaMensaje.setBounds(257, 431, 61, 16);
 		
 		getContentPane().add(GordetaMensaje);
-		
-		JLabel labelApostuak = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuAnitzaEginGUI.lblNewLabel.text")); //$NON-NLS-1$ //$NON-NLS-2$
-		labelApostuak.setBounds(6, 413, 494, 51);
-		getContentPane().add(labelApostuak);
 
+		scrollPane.setBounds(40, 306, 208, 115);
+
+		getContentPane().add(scrollPane);
+
+		JList apostuList = new JList();
+		apostuList.setBackground(new Color(100, 149, 237));
+		apostuList.setForeground(new Color(0, 0, 0));
+		scrollPane.setViewportView(apostuList);
+
+		JLabel labelApostuak = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuAnitzaEginGUI.lblNewLabel.text"));
+		scrollPane.setColumnHeaderView(labelApostuak);
+		DefaultListModel apostuModel = new DefaultListModel();
 		
 		JButton buttonGehitu = new JButton(ResourceBundle.getBundle("Etiquetas").getString("ApostuAnitzaEginGUI.btnNewButton.text")); //$NON-NLS-1$ //$NON-NLS-2$
 		buttonGehitu.addActionListener(new ActionListener() {
@@ -296,12 +302,16 @@ public class ApostuAnitzaEginGUI extends JFrame {
 				int index3 = jComboBoxPronostikoak.getSelectedIndex();
 				Pronostikoa pronostikoagehitu = jComboBoxPronostikoak.getItemAt(index3);
 				pronostikoak.add(pronostikoagehitu);
-				labelApostuak.setText(labelApostuak.getText() + "\n"+ pronostikoagehitu.toString());
+				apostuModel.addElement(pronostikoagehitu);
+				apostuList.setModel(apostuModel);
+
+
 			
 			}
 		});
-		buttonGehitu.setBounds(273, 295, 130, 29);
+		buttonGehitu.setBounds(380, 256, 130, 29);
 		getContentPane().add(buttonGehitu);
+
 		
 		
 		

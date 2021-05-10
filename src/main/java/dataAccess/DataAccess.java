@@ -439,7 +439,7 @@ public class DataAccess {
 	}
 
 
-	public Apostua apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username) {	
+	public Boolean apustuaEgin(Pronostikoa pronostikoa, double diruKop, String username) {
 		db.getTransaction().begin();
 		Bezero bezero = db.find(Bezero.class, username);
 		if (bezero.getDiruKop()>=diruKop) {
@@ -469,11 +469,10 @@ public class DataAccess {
 			}
 			db.getTransaction().commit();
 			pronostikoa1.inprimatuApostuak();
-			return apostu;
+			return true;
 		}
 		else {
-			System.out.println("Ez daukazu dirurik");
-			return null;
+			return false;
 		}
 		
 	}

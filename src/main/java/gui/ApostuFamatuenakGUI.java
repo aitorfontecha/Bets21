@@ -65,11 +65,14 @@ public class ApostuFamatuenakGUI extends JFrame {
 
 		List<Pronostikoa> pronostikoak= bl.getPronostikoGuztiak();
 		ArrayList<Integer> apostuKop= new ArrayList<Integer>();
-
-		for (int i=0; i<5;i++) {
-			if (pronostikoak.get(i)!=null) {
-				apostuKop.add(pronostikoak.get(i).getApostuak().size());
+		if(apostuKop.size()>0) {
+			for (int i = 0; i < 5; i++) {
+				if (pronostikoak.get(i) != null) {
+					apostuKop.add(pronostikoak.get(i).getApostuak().size());
+				}
 			}
+		} else {
+			System.out.println("Ez dira aposturik egin oraindik.");
 		}
 
 
