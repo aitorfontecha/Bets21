@@ -6,7 +6,6 @@ import java.util.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import configuration.ConfigXML;
@@ -486,7 +485,6 @@ public class DataAccess {
 			db.getTransaction().begin();
 			Bezero bezero = db.find(Bezero.class, username); 
 			bezero.diruaSartu(diruKop);
-			bezero.addMugimendua(diruKop);
 			db.getTransaction().commit();
 			return true;
 		} else {
@@ -591,5 +589,12 @@ public class DataAccess {
 		TypedQuery<Pronostikoa> query = db.createQuery("SELECT a FROM Pronostikoa a", Pronostikoa.class);
 		List<Pronostikoa> pronostikoak= query.getResultList();
 		return pronostikoak;
+	}
+
+	public List<Double> getMugimenduak(String user){
+		db.getTransaction().begin();
+		Bezero b = db.find(Bezero.class,user);
+		List<Double> mugi=b.getMugimenduak();
+		return mugi;
 	}
 }

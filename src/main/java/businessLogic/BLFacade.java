@@ -118,4 +118,7 @@ public interface BLFacade {
 	@WebMethod
 	public List<Pronostikoa> getPronostikoGuztiak();
 
+	@WebMethod
+	public List<Double> getMugimenduak(String user);
+
 }

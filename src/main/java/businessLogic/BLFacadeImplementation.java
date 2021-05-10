@@ -270,4 +270,12 @@ public class BLFacadeImplementation implements BLFacade {
 		dbManager.close();
 		return pronostikoak;
 	}
+
+	@WebMethod
+	public List<Double> getMugimenduak(String user){
+		dbManager.open(false);
+		List<Double> mugimenduak = dbManager.getMugimenduak(user);
+		dbManager.close();
+		return mugimenduak;
+	}
 }

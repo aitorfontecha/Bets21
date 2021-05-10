@@ -105,6 +105,7 @@ public class Bezero extends Pertsona {
 	
 	public void diruaSartu(double diru) {
 		this.diruKop=this.diruKop+diru;
+		this.mugimenduak.add(diru);
 	}
 
 }

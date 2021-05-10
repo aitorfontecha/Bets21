@@ -96,9 +96,8 @@ public class MugimenduakIkusiGUI extends JFrame {
 		diruList.setBackground(SystemColor.textHighlight);
 		diruList.setBounds(250, 166, 174, 101);
 		contentPane.add(diruList);
-		
-		String username= bl.getUser();
-		Bezero p =bl.getPertsona(username);
+
+		Bezero p =bl.getPertsona(bl.getUser());
 		double dirukop = p.getDiruKop();
 		String dirukop2= Double.toString(dirukop);
 		Vector<Apostua> apustuak= p.getApostuak();
@@ -107,15 +106,15 @@ public class MugimenduakIkusiGUI extends JFrame {
 			model1.add(i, apustuak.get(i));		
 		}
 		
-		Vector<Double> mugimenduak= p.getMugimenduak();
-		for (int i=0; i<p.getMugimenduak().size();i++) {
-			model2.add(i, p.getMugimenduak().get(i));		
+		Vector<Double> mugimenduak= (Vector<Double>) bl.getMugimenduak(bl.getUser());
+		for (int i=0; i<mugimenduak.size();i++) {
+			model2.add(i, mugimenduak.get(i));
 		}
 
 		JLabel label_Izena = new JLabel();
 		label_Izena.setBounds(146, 59, 236, 28);
 		contentPane.add(label_Izena);
-		label_Izena.setText(username);
+		label_Izena.setText(bl.getUser());
 		label_Izena.setVisible(true);
 
 		JLabel label_dirua = new JLabel();
