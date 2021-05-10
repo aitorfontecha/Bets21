@@ -1,0 +1,325 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 09:59:10 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 16732@AITOR-DESKTOP
+
+[2021-05-10 09:59:16 #2 type.registry] 
+New type domain.Pertsona
+
+[2021-05-10 09:59:16 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 09:59:48 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 11788@AITOR-DESKTOP
+
+[2021-05-10 09:59:48 #2 type.registry] 
+New type domain.Question
+
+[2021-05-10 09:59:48 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 09:59:48 #4 type.registry] 
+New type domain.Pronostikoa
+
+[2021-05-10 09:59:48 #5 type.registry] 
+New type domain.Event
+
+[2021-05-10 09:59:48 #6 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 09:59:48 #7 type.registry] 
+New type domain.Apostua
+
+[2021-05-10 09:59:48 #8 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 09:59:48 #9 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 09:59:48 #10 type.registry] 
+New type domain.Pertsona
+
+[2021-05-10 09:59:48 #11 type.registry] 
+New type domain.Bezero
+
+[2021-05-10 09:59:48 #12 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 09:59:48 #13 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 09:59:48 #14 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2021-05-10 09:59:48 #15 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2021-05-10 09:59:48 #16 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2021-05-10 09:59:48 #17 type.registry] 
+New type domain.Administratzaile
+
+[2021-05-10 09:59:48 #18 type] 
+Type domain.Administratzaile is not enhanced.
+
+[2021-05-10 09:59:48 #19 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2021-05-10 09:59:48 #20 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2021-05-10 09:59:48 #21 type.registry] 
+New type java.util.Vector<domain.Question>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 09:59:58 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 1-8)
+
+[2021-05-10 09:59:58 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 8812@AITOR-DESKTOP
+
+[2021-05-10 09:59:58 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 09:59:58 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 09:59:58 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 09:59:58 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 09:59:58 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 09:59:58 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 09:59:58 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:02:54 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 9-13)
+
+[2021-05-10 10:02:54 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 9628@AITOR-DESKTOP
+
+[2021-05-10 10:02:54 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:02:54 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:02:54 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:02:54 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:02:54 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:02:54 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:02:54 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:05:06 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 8772@AITOR-DESKTOP
+
+[2021-05-10 10:05:06 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:05:06 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:05:06 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:05:06 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:05:06 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:05:06 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:05:06 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:05:18 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 10096@AITOR-DESKTOP
+
+[2021-05-10 10:05:18 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:05:18 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:05:18 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:05:18 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:05:18 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:05:18 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:05:18 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:13:22 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 14-14)
+
+[2021-05-10 10:13:22 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 1196@AITOR-DESKTOP
+
+[2021-05-10 10:13:22 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:13:22 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:13:22 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:13:22 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:13:22 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:13:22 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:13:22 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:16:04 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 13452@AITOR-DESKTOP
+
+[2021-05-10 10:16:04 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:16:04 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:16:04 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:16:04 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:16:04 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:16:04 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:16:04 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:19:31 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 15-15)
+
+[2021-05-10 10:19:31 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 8352@AITOR-DESKTOP
+
+[2021-05-10 10:19:31 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:19:31 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:19:31 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:19:31 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:19:31 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:19:31 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:19:31 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:21:32 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 14832@AITOR-DESKTOP
+
+[2021-05-10 10:21:32 #2 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:21:32 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:21:32 #4 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:21:32 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:21:32 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:21:32 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:21:32 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2021-05-10 10:22:56 #1 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' has been recovered (tr. 16-16)
+
+[2021-05-10 10:22:56 #2 store] 
+Database 'C:\Users\aitor\Documents\GitHub\Bets21\src\main\resources\bets.temp' is opened by 17032@AITOR-DESKTOP
+
+[2021-05-10 10:22:56 #3 type] 
+Type domain.Question is not enhanced.
+
+[2021-05-10 10:22:56 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2021-05-10 10:22:56 #5 type] 
+Type domain.Event is not enhanced.
+
+[2021-05-10 10:22:56 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2021-05-10 10:22:56 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2021-05-10 10:22:56 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2021-05-10 10:22:56 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
