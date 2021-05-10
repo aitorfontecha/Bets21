@@ -223,21 +223,25 @@ public class PronostikoaIpiniGUI extends JFrame {
 		getContentPane().add(jComboBoxQuestions);
 		buttonGehitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				double kuota = Double.parseDouble(textFieldKuota.getText());
-				Pronostikoa pronostiko = new Pronostikoa (textFieldPronostikoa.getText(), kuota);
-				int indizea= jComboBoxQuestions.getSelectedIndex();
-				Question galdera= jComboBoxQuestions.getItemAt(indizea);
-				if(galdera!=null) {
-					Pronostikoa pr= bl.pronostikoaIpini(galdera, pronostiko);
-					if (pr!=null) {
-						labelGordeta.setVisible(true);
+				if (!textFieldKuota.getText().isEmpty()) {
+					double kuota = Double.parseDouble(textFieldKuota.getText());
+					Pronostikoa pronostiko = new Pronostikoa (textFieldPronostikoa.getText(), kuota);
+					int indizea= jComboBoxQuestions.getSelectedIndex();
+					Question galdera= jComboBoxQuestions.getItemAt(indizea);
+					if(galdera!=null) {
+						Pronostikoa pr= bl.pronostikoaIpini(galdera, pronostiko);
+						if (pr!=null) {
+							labelGordeta.setVisible(true);
+						}
+						else {
+							labelErrorea.setVisible(true);
+						}
 					}
-					else {
-						labelErrorea.setVisible(true);
-					}
+				}else {
+					labelErrorea.setVisible(true);
 				}
 			}
+
 		});
 
 

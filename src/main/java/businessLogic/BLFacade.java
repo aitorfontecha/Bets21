@@ -105,5 +105,17 @@ public interface BLFacade {
 
 	@WebMethod
 	public Question deleteQuestion(Question galdera);
+	
+	@WebMethod
+	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username);
+
+	@WebMethod
+	public List<Pertsona> getBezeroak();
+	
+	@WebMethod
+	public void kopiatu(Bezero b1, Bezero b2);
+	
+	@WebMethod
+	public List<Pronostikoa> getPronostikoGuztiak();
 
 }

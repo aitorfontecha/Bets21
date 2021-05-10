@@ -1,14 +1,7 @@
 package dataAccess;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.Vector;
+import java.util.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -410,12 +403,35 @@ public class DataAccess {
 		Pronostikoa pronostikoa1= db.find(Pronostikoa.class, pr.getIdPronostikoa());
 		galdera1.emaitzaIpini(pr);
 		for (Apostua apostua: pronostikoa1.getApostuak() ){
-			double irabaz=0;
-			irabaz= apostua.getApustuDiru() * pronostikoa1.getKuota();
-			Bezero b= apostua.getBezeroa();
-			String code2= b.getErabiltzailea();
-			Bezero bezero = db.find(Bezero.class, code2);
-			bezero.diruaSartu(irabaz);
+			if(!apostua.getKopiatuta()) {
+			apostua.setEmaitzak(true);
+			Vector<Boolean> emaitzak=apostua.getEmaitzak();
+			double kuota=0;
+			if (!emaitzak.contains(false)){
+				Vector<Pronostikoa> p = apostua.getPronostikoa();
+				for (Pronostikoa pi : p){
+					kuota += pi.getKuota();
+				}
+				double irabaz=0;
+				irabaz= apostua.getApustuDiru() * kuota;
+				Bezero b= apostua.getBezeroa();
+				String code2= b.getErabiltzailea();
+				Bezero bezero = db.find(Bezero.class, code2);
+				bezero.diruaSartu(irabaz);
+				Vector<Bezero> kopioiak = bezero.getKopioiak();
+				if(!kopioiak.isEmpty()) {
+					for(Bezero bk: kopioiak) {
+						double irabazDeskontu = irabaz*0.1;
+						bk.diruaSartu(irabaz-irabazDeskontu);
+						b.diruaSartu(irabazDeskontu);
+					}
+					
+				}
+			}
+			
+			
+			}
+
 		}
 
 		db.getTransaction().commit();
@@ -428,12 +444,30 @@ public class DataAccess {
 		db.getTransaction().begin();
 		Bezero bezero = db.find(Bezero.class, username);
 		if (bezero.getDiruKop()>=diruKop) {
-			Apostua apostu = new Apostua(diruKop, bezero, pronostikoa);
+			Apostua apostu = new Apostua(diruKop, bezero);
 			int id = pronostikoa.getIdPronostikoa();
 			Pronostikoa pronostikoa1 = db.find(Pronostikoa.class, id);
 			pronostikoa1.addApostua(apostu);
 			bezero.addApostua(apostu);
+			bezero.addMugimendua(-diruKop);
+			apostu.addPronostikoa(pronostikoa1);
 			bezero.setDiruKop(bezero.getDiruKop()-diruKop);
+			
+			Vector<Bezero> kopioiak= bezero.getKopioiak();
+			if(kopioiak != null) {
+				for(Bezero b : kopioiak) {
+					if (b.getDiruKop()>=diruKop) {
+					Apostua apostu2 = new Apostua(diruKop, b);
+					apostu2.setKopiatuta(bezero);
+					apostu2.addPronostikoa(pronostikoa1);
+					pronostikoa1.addApostua(apostu2);
+					b.addApostua(apostu2);
+					b.addMugimendua(-diruKop);
+					b.setDiruKop(b.getDiruKop()-diruKop);
+					}
+				}
+				
+			}
 			db.getTransaction().commit();
 			pronostikoa1.inprimatuApostuak();
 			return apostu;
@@ -452,6 +486,7 @@ public class DataAccess {
 			db.getTransaction().begin();
 			Bezero bezero = db.find(Bezero.class, username); 
 			bezero.diruaSartu(diruKop);
+			bezero.addMugimendua(diruKop);
 			db.getTransaction().commit();
 			return true;
 		} else {
@@ -494,4 +529,67 @@ public class DataAccess {
 	}
 
 
+	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {	
+		db.getTransaction().begin();
+		Bezero bezero = db.find(Bezero.class, username);
+		if (bezero.getDiruKop()>=diruKop) {
+			Apostua apostuAnitza = new Apostua(diruKop, bezero);
+			for (int i=0; i< pronostikoak.size(); i++) {
+				int  unekoa = pronostikoak.get(i).getIdPronostikoa();
+				Pronostikoa unekoPronostikoa = db.find(Pronostikoa.class, unekoa);
+				unekoPronostikoa.addApostua(apostuAnitza);
+				apostuAnitza.addPronostikoa(unekoPronostikoa);
+			}
+			bezero.addApostua(apostuAnitza);
+			bezero.addMugimendua(-diruKop);
+			bezero.setDiruKop(bezero.getDiruKop()-diruKop);
+			db.persist(apostuAnitza);
+			Vector<Bezero> kopioiak= bezero.getKopioiak();
+			if(kopioiak != null) {
+				for(Bezero b : kopioiak) {
+					if (b.getDiruKop()>=diruKop) {
+						Apostua apostuAnitza2 = new Apostua(diruKop, bezero);
+						b.addMugimendua(-diruKop);
+						for (int i=0; i< pronostikoak.size(); i++) {
+							int  unekoa2 = pronostikoak.get(i).getIdPronostikoa();
+							Pronostikoa unekoPronostikoa2 = db.find(Pronostikoa.class, unekoa2);
+							unekoPronostikoa2.addApostua(apostuAnitza2);
+							apostuAnitza2.addPronostikoa(unekoPronostikoa2);
+						}
+				}
+				
+			}
+			}
+			db.getTransaction().commit();
+			return apostuAnitza;
+		}
+		else {
+			System.out.println("Ez daukazu dirurik");
+			return null;
+		}
+
+		
+	}
+
+	public List<Pertsona> getBezeroak(){
+		db.getTransaction().begin();
+		TypedQuery<Pertsona> query = db.createQuery("SELECT p FROM Pertsona p", Pertsona.class);
+		List<Pertsona> pertsonak = query.getResultList();
+		return  pertsonak;
+	}
+	
+	public void kopiatu(Bezero kopiatzekoPertsona, Bezero kopioia){
+		db.getTransaction().begin();
+		Bezero kopioiaDB= db.find(Bezero.class, kopioia.getErabiltzailea());
+		Bezero kopiatzekoaDB= db.find(Bezero.class, kopiatzekoPertsona.getErabiltzailea());
+		
+		kopiatzekoaDB.addKopioia(kopioiaDB);
+		db.getTransaction().commit();
+	}
+	
+	public List<Pronostikoa> getPronostikoGuztiak(){
+		TypedQuery<Pronostikoa> query = db.createQuery("SELECT a FROM Pronostikoa a", Pronostikoa.class);
+		List<Pronostikoa> pronostikoak= query.getResultList();
+		return pronostikoak;
+	}
 }

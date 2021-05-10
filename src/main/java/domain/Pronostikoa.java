@@ -28,17 +28,23 @@ public class Pronostikoa implements Serializable {
     private String aukera;
     private double kuota;
     @XmlIDREF
+    @OneToOne(orphanRemoval=true)
     private Question galdera;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Apostua> apostuak;
+
     
     public Pronostikoa() {
+    	
     	super();
+    	System.out.println("Pronostikoa sortuta.");
     }
     public Pronostikoa(String aukera,double kuota){
+    	System.out.println("Pronostikoa sortuta.");
         this.aukera=aukera;
         this.kuota=kuota;
-        apostuak=new Vector<Apostua>();
+        this.apostuak=new Vector<Apostua>();
+        //this.apostuAnitzak= new Vector<ApostuAnitza>();
     }
 
     public Question getGaldera() {
@@ -69,11 +75,12 @@ public class Pronostikoa implements Serializable {
     }
 
     public void addApostua(Apostua apostua){
-        apostuak.add(apostua);
+        this.apostuak.add(apostua);
     }
+    
 
-    public List<Apostua> getApostuak() {
-        return apostuak;
+    public Vector<Apostua> getApostuak() {
+        return (Vector<Apostua>) apostuak;
     }
     
     public void inprimatuApostuak() {

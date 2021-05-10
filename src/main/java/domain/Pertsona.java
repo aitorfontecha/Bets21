@@ -45,5 +45,9 @@ public abstract class Pertsona implements Serializable{
 	public String getErabiltzailea() {
 		return erabiltzaileIzena;
 	}
+	
+	public String toString() {
+		return this.erabiltzaileIzena;
+	}
 
 }

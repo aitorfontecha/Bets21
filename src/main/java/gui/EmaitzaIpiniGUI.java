@@ -247,7 +247,6 @@ public class EmaitzaIpiniGUI extends JFrame {
 				Pronostikoa p = jComboBoxPronostikoak.getItemAt(index);
 				if (p!=null) {
 					boolean lortuta= bl.emaitzaIpini(q, p);
-					bl.deleteQuestion(q);
 					if (!lortuta) {
 						labelErrorea.setVisible(true);
 					}

@@ -239,4 +239,35 @@ public class BLFacadeImplementation implements BLFacade {
         		dbManager.close();
         		return q;
 	}
+	
+	@WebMethod
+	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {
+		dbManager.open(false);
+		Apostua apo= dbManager.apostuAnitzaEgin(pronostikoak, diruKop, username);
+		dbManager.close();
+		return apo;
+	}
+
+	@WebMethod
+	public List<Pertsona> getBezeroak(){
+		dbManager.open(false);
+		List<Pertsona> bezeroak = dbManager.getBezeroak();
+		dbManager.close();
+		return bezeroak;
+	}
+	
+	@WebMethod
+	public void kopiatu(Bezero b1, Bezero b2){
+		dbManager.open(false);
+		dbManager.kopiatu(b1, b2);
+		dbManager.close();
+	}
+	
+	@WebMethod
+	public List<Pronostikoa> getPronostikoGuztiak(){
+		dbManager.open(false);
+		List<Pronostikoa> pronostikoak= dbManager.getPronostikoGuztiak();
+		dbManager.close();
+		return pronostikoak;
+	}
 }

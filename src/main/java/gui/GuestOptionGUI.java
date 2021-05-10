@@ -71,7 +71,7 @@ public class GuestOptionGUI extends JFrame {
 				a.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(141, 80, 156, 29);
+		btnNewButton_1.setBounds(141, 68, 156, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_3 = new JButton("Dirua sartu");
@@ -81,7 +81,7 @@ public class GuestOptionGUI extends JFrame {
 				a.setVisible(true);
 			}
 		});
-		btnNewButton_3.setBounds(141, 116, 156, 29);
+		btnNewButton_3.setBounds(141, 97, 156, 29);
 		contentPane.add(btnNewButton_3);
 		
 		JButton mugimenduakIkusiButton = new JButton("Mugimenduak ikusi");
@@ -91,8 +91,38 @@ public class GuestOptionGUI extends JFrame {
 				a.setVisible(true);
 			}
 		});
-		mugimenduakIkusiButton.setBounds(141, 153, 156, 29);
+		mugimenduakIkusiButton.setBounds(141, 125, 156, 29);
 		contentPane.add(mugimenduakIkusiButton);
+		
+		JButton buttonAnitza = new JButton(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.btnNewButton_2.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		buttonAnitza.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame a = new ApostuAnitzaEginGUI();
+				a.setVisible(true);
+			}
+		});
+		buttonAnitza.setBounds(141, 153, 156, 29);
+		contentPane.add(buttonAnitza);
+		
+		JButton btnKopiatu = new JButton(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.btnKopiatu.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		btnKopiatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame a = new ErabiltzaileaKopiatuGUI();
+				a.setVisible(true);
+			}
+		});
+		btnKopiatu.setBounds(141, 180, 156, 29);
+		contentPane.add(btnKopiatu);
+		
+		JButton buttonFamatuenak = new JButton(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.btnNewButton_2.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		buttonFamatuenak.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame a = new ApostuFamatuenakGUI();
+				a.setVisible(true);
+			}
+		});
+		buttonFamatuenak.setBounds(141, 208, 156, 29);
+		contentPane.add(buttonFamatuenak);
 		
 		
 		

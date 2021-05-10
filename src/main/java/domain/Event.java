@@ -32,11 +32,11 @@ public class Event implements Serializable {
 	private Integer eventNumber;
 	private String description;
 	private Date eventDate;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Question> questions = new Vector<Question>();
 
-	public List<Question> getQuestions() {
-		return questions;
+	public Vector<Question> getQuestions() {
+		return (Vector<Question>) questions;
 	}
 
 	public void setQuestions(List<Question> questions) {

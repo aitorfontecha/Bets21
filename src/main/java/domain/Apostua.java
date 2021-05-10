@@ -1,12 +1,12 @@
 package domain;
 
-import java.io.Serializable;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Vector;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
@@ -24,28 +24,36 @@ public class Apostua implements Serializable{
     Integer idApustu;
     double apustuDiru;
     @XmlIDREF
-    Pronostikoa pronostikoa;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    List<Pronostikoa> pronostikoak;
     @OneToOne(cascade=CascadeType.ALL)
     @XmlIDREF
     Bezero bezeroa;
+    List<Boolean> emaitzak;
+    boolean kopiatuta;
+    Bezero noriKopiatuta;
 
     
     public Apostua() {
     	super();
     }
-    public Apostua(double apustuDiru,Bezero bezeroa, Pronostikoa pronostikoa) {
+    public Apostua(double apustuDiru,Bezero bezeroa) {
         this.apustuDiru = apustuDiru;
         this.bezeroa = bezeroa;
-		this.pronostikoa = pronostikoa;
+		this.pronostikoak = new Vector<Pronostikoa>();
+		this.emaitzak = new Vector<Boolean>();
+		this.kopiatuta = false;
+		
     }
 
 
-    public Pronostikoa getPronostikoa() {
-        return pronostikoa;
+    public Vector<Pronostikoa> getPronostikoa() {
+        return (Vector<Pronostikoa>) this.pronostikoak;
     }
 
-    public void setPronostikoa(Pronostikoa pronostikoa) {
-        this.pronostikoa = pronostikoa;
+    public void addPronostikoa(Pronostikoa pronostikoa) {
+        this.pronostikoak.add(pronostikoa);
+        this.emaitzak.add(false);
     }
 
     public Bezero getBezeroa() {
@@ -76,4 +84,24 @@ public class Apostua implements Serializable{
     public void setApustuDiru(double apustuDiru) {
         this.apustuDiru = apustuDiru;
     }
+
+    public void setEmaitzak(boolean bool){
+        this.emaitzak.set(this.emaitzak.indexOf(false),bool);
+    }
+    public Vector<Boolean> getEmaitzak(){
+        return (Vector<Boolean>) this.emaitzak;
+    }
+    public void setKopiatuta(Bezero b) {
+    	this.kopiatuta=true;
+    	this.noriKopiatuta=b;
+    }
+	public boolean getKopiatuta() {
+		return kopiatuta;
+	}
+	
+	public String toString() {
+		return this.idApustu + ";" + this.pronostikoak.toString() + ";" ;
+	}
+    
+    
 }
