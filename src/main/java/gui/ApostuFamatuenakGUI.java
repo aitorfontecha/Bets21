@@ -25,6 +25,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class ApostuFamatuenakGUI extends JFrame {
 
@@ -88,6 +89,19 @@ public class ApostuFamatuenakGUI extends JFrame {
 		JLabel lblNewLabel = new JLabel("PRONOSTIKO FAMATUENAK");
 		lblNewLabel.setBounds(133, 13, 197, 16);
 		contentPane.add(lblNewLabel);
+		
+		
+		JLabel ErrorMessage = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuFamatuenakGUI.lblNewLabel_7.text"));
+		ErrorMessage.setForeground(Color.RED);
+		ErrorMessage.setBounds(294, 176, 132, 14);
+		contentPane.add(ErrorMessage);
+		ErrorMessage.setVisible(false);
+		
+		JLabel ApostuMessage = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("ApostuFamatuenakGUI.lblNewLabel_7.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		ApostuMessage.setForeground(Color.GREEN);
+		ApostuMessage.setBounds(288, 215, 116, 14);
+		contentPane.add(ApostuMessage);
+		ApostuMessage.setVisible(false);
 
 
 		diruKop = new JTextField();
@@ -100,10 +114,23 @@ public class ApostuFamatuenakGUI extends JFrame {
 		contentPane.add(apostatuBotoia);
 		apostatuBotoia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				ApostuMessage.setVisible(false);
+				ErrorMessage.setVisible(false);
 				if(!list.isSelectionEmpty()) {
 					Pronostikoa pr = (Pronostikoa) list.getSelectedValue();
-					double dirukop = Double.parseDouble(diruKop.getText());
-					bl.apustuaEgin(pr, dirukop, bl.getUser());
+					if (!diruKop.getText().isEmpty()) {
+						double dirukop = Double.parseDouble(diruKop.getText());
+						Boolean b = bl.apustuaEgin(pr, dirukop, bl.getUser());
+						if(b) {
+							ApostuMessage.setText("Gordeta!");
+							ApostuMessage.setVisible(true);
+						} else {
+							ApostuMessage.setText("Ez da apostua gorde!");
+							ApostuMessage.setVisible(true);
+						}
+					} else {
+						ErrorMessage.setVisible(true);
+					}
 				}
 			}
 		});
