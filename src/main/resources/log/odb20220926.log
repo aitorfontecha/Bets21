@@ -1,0 +1,55 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-09-26 11:50:06 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 15148@DESKTOP-M901S3E
+
+[2022-09-26 11:50:06 #2 type] 
+Type domain.Question is not enhanced.
+
+[2022-09-26 11:50:06 #3 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-09-26 11:50:06 #4 type] 
+Type domain.Event is not enhanced.
+
+[2022-09-26 11:50:06 #5 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-09-26 11:50:06 #6 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-09-26 11:50:06 #7 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-09-26 11:50:06 #8 type] 
+Type domain.Administratzaile is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-09-26 11:51:15 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' has been recovered (tr. 30-34)
+
+[2022-09-26 11:51:15 #2 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 1464@DESKTOP-M901S3E
+
+[2022-09-26 11:51:15 #3 type] 
+Type domain.Question is not enhanced.
+
+[2022-09-26 11:51:15 #4 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-09-26 11:51:15 #5 type] 
+Type domain.Event is not enhanced.
+
+[2022-09-26 11:51:15 #6 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-09-26 11:51:15 #7 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-09-26 11:51:15 #8 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-09-26 11:51:15 #9 type] 
+Type domain.Administratzaile is not enhanced.
+
