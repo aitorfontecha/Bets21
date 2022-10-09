@@ -28,7 +28,6 @@ public class emaitzaIpiniDAWTest {
     private Question qu;
     private Pronostikoa pr;
     private Apostua ap;
-    private Event ev;
 
     @Before
     public void init() {
@@ -44,7 +43,7 @@ public class emaitzaIpiniDAWTest {
             testDA.open();
             ev = testDA.addEventWithQuestion("Proba ebentua", oneDate, "Proba galdera",(float)1.0);
             qu = ev.getQuestions().get(0);
-            pr = testDA.pronostikoaIpini(qu, pr);
+            testDA.addPronostikoa(pr);
             testDA.close();
         }catch(ParseException e) {
             e.printStackTrace();
@@ -73,9 +72,8 @@ public class emaitzaIpiniDAWTest {
             e.printStackTrace();
         }
         try {
-            double emaitza = sut.emaitzaIpini(qu, pr).get(0);
-            double esperotakoEmaitza = 1;
-            assertEquals(esperotakoEmaitza, emaitza,0);
+            boolean emaitza = sut.emaitzaIpini(qu, pr);
+            assertTrue(emaitza);
         }catch(Exception e) {
             e.printStackTrace();
         }
@@ -90,39 +88,15 @@ public class emaitzaIpiniDAWTest {
             testDA.open();
             ev = testDA.addEventWithQuestion("Proba ebentua", oneDate, "Proba galdera",(float)1.0);
             qu = ev.getQuestions().get(0);
-            pr = testDA.apustuaIrabazi();
+            pr = testDA.addPronostikoaWithApustuak();
             testDA.close();
         }catch(ParseException e) {
             e.printStackTrace();
         }
         try {
-            ap = pr.getApustuak().get(0);
-            double emaitza = sut.emaitzaIpini(qu, pr).get(1);
-            double esperotakoEmaitza = 25;
-            assertEquals(esperotakoEmaitza, emaitza,0);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @Test
-    public void test4() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date oneDate=null;
-        try {
-            oneDate = sdf.parse("05/10/2022");
-            testDA.open();
-            ev = testDA.addEventWithQuestion("2. Proba ebentua", oneDate, "2. Proba galdera",(float)1.0);
-            qu = ev.getQuestions().get(0);
-            pr = testDA.apustuaIrabaziErrepikapenarekin();
-            testDA.close();
-        }catch(ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-            ap = pr.getApustuak().get(0);
-            double emaitza = sut.emaitzaIpini(qu, pr).get(1);
-            double esperotakoEmaitza = 5;
-            assertEquals(esperotakoEmaitza, emaitza,0);
+            ap = pr.getApostuak().get(0);
+            boolean emaitza = sut.emaitzaIpini(qu, pr);
+            assertTrue(emaitza);
         }catch(Exception e) {
             e.printStackTrace();
         }
