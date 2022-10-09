@@ -27,6 +27,10 @@
 <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
+	<sonar.organization>aitorfontecha</sonar.organization>
+	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	<sonar.projectKey>aitorfontecha_Bets21</sonar.projectKey>
+	<sonar.login>ffc4af758d04e4b35211d2f3d32c6815ddd30de8</sonar.login>
 </properties>
 
 <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -110,6 +114,11 @@
 		<artifactId>junit</artifactId>
 		<version>RELEASE</version>
 		<scope>test</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.mockito</groupId>
+		<artifactId>mockito-all</artifactId>
+		<version>1.10.19</version>
 	</dependency>
 
 </dependencies>

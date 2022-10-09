@@ -99,5 +99,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.webjars:jquery:3.6.0" level="project" />
     <orderEntry type="library" name="mockito.all" level="project" />
     <orderEntry type="library" name="mockito.all1" level="project" />
+    <orderEntry type="library" name="mockito-all-1.10.19" level="project" />
   </component>
 </module>
