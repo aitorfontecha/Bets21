@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 
 import configuration.ConfigXML;
 import domain.Event;
+import domain.Pronostikoa;
 import domain.Question;
 
 public class TestDataAccess {
@@ -88,6 +89,16 @@ public class TestDataAccess {
 			} else 
 			return false;
 			
+		}
+
+		public Pronostikoa pronostikoaIpini(Question galdera, Pronostikoa p) {
+			int code = galdera.getQuestionNumber();
+			db.getTransaction().begin();
+			Question galdera1 = db.find(Question.class, code);
+			galdera1.pronostikoaGehitu(p);
+			db.getTransaction().commit();
+			galdera1.inprimatuPronostikoak();
+			return p;
 		}
 }
 
