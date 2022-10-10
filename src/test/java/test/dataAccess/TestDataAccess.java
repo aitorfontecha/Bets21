@@ -12,7 +12,6 @@ import javax.persistence.Persistence;
 
 import configuration.ConfigXML;
 import domain.*;
-import jdk.jfr.Registered;
 
 public class TestDataAccess {
 	protected EntityManager db;
