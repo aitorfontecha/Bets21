@@ -337,24 +337,7 @@ public class DataAccess {
 		if (pass1.equals(pass2)) { // Pasahitza ondo errepikatu behar da.
 			Pertsona p = db.find(Pertsona.class, username);
 			if (p == null) { // Erregistratu nahi den erabiltzailea oraindik ez da existitzen.
-				Date gaurkoa = new Date();
-				String formato = "yyyy";
-				SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
-				int unekoUrtea = Integer.parseInt(dateFormat.format(gaurkoa));
-				int jaiotzeUrtea = Integer.parseInt(dateFormat.format(jaiotzeData));
-				if (unekoUrtea - jaiotzeUrtea >= 18 && kredituTxartela.length() == 16) { // 18 urte baino gehiago eta
-					// txartela zebakia egokiak
-					// izan behar dira.
-					db.getTransaction().begin();
-					db.persist(bezero1);
-					db.getTransaction().commit();
-					System.out.println("Gordeta " + username);
-					aurkitua = true;
-				} else if (unekoUrtea - jaiotzeUrtea < 18) {
-					System.out.println("Ez dituzu 18 urte");
-				} else if (kredituTxartela.length() != 16) {
-					System.out.println("Kreditu txartelaren zenbakia ez da zuzena.");
-				}
+				aurkitua = isAurkitua(username, jaiotzeData, kredituTxartela, bezero1, aurkitua);
 			} else {
 				System.out.println("Dagoeneko erabiltzailea existitzen da.");
 			}
@@ -362,6 +345,28 @@ public class DataAccess {
 			System.out.println("Idatzitako bi pasahitzak ezberdinak");
 		}
 
+		return aurkitua;
+	}
+
+	private static boolean isAurkitua(String username, Date jaiotzeData, String kredituTxartela, Bezero bezero1, boolean aurkitua) {
+		Date gaurkoa = new Date();
+		String formato = "yyyy";
+		SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
+		int unekoUrtea = Integer.parseInt(dateFormat.format(gaurkoa));
+		int jaiotzeUrtea = Integer.parseInt(dateFormat.format(jaiotzeData));
+		if (unekoUrtea - jaiotzeUrtea >= 18 && kredituTxartela.length() == 16) { // 18 urte baino gehiago eta
+			// txartela zebakia egokiak
+			// izan behar dira.
+			db.getTransaction().begin();
+			db.persist(bezero1);
+			db.getTransaction().commit();
+			System.out.println("Gordeta " + username);
+			aurkitua = true;
+		} else if (unekoUrtea - jaiotzeUrtea < 18) {
+			System.out.println("Ez dituzu 18 urte");
+		} else if (kredituTxartela.length() != 16) {
+			System.out.println("Kreditu txartelaren zenbakia ez da zuzena.");
+		}
 		return aurkitua;
 	}
 
@@ -402,40 +407,44 @@ public class DataAccess {
 		Pronostikoa pronostikoa1= db.find(Pronostikoa.class, pr.getIdPronostikoa());
 		galdera1.emaitzaIpini(pr);
 		for (Apostua apostua: pronostikoa1.getApostuak() ){
-			if(!apostua.getKopiatuta()) {
-			apostua.setEmaitzak(true);
-			Vector<Boolean> emaitzak=apostua.getEmaitzak();
-			double kuota=0;
-			if (!emaitzak.contains(false)){
-				Vector<Pronostikoa> p = apostua.getPronostikoa();
-				for (Pronostikoa pi : p){
-					kuota += pi.getKuota();
-				}
-				double irabaz=0;
-				irabaz= apostua.getApustuDiru() * kuota;
-				Bezero b= apostua.getBezeroa();
-				String code2= b.getErabiltzailea();
-				Bezero bezero = db.find(Bezero.class, code2);
-				bezero.diruaSartu(irabaz);
-				Vector<Bezero> kopioiak = bezero.getKopioiak();
-				if(!kopioiak.isEmpty()) {
-					for(Bezero bk: kopioiak) {
-						double irabazDeskontu = irabaz*0.1;
-						bk.diruaSartu(irabaz-irabazDeskontu);
-						b.diruaSartu(irabazDeskontu);
-					}
-					
-				}
-			}
-			
-			
-			}
-
+			checkApostua(apostua);
 		}
 
 		db.getTransaction().commit();
 		galdera1.inprimatuEmaitza();
 		return true;
+	}
+
+	private static void checkApostua(Apostua apostua) {
+		if(!apostua.getKopiatuta()) {
+		apostua.setEmaitzak(true);
+		Vector<Boolean> emaitzak= apostua.getEmaitzak();
+		double kuota=0;
+		if (!emaitzak.contains(false)){
+			Vector<Pronostikoa> p = apostua.getPronostikoa();
+			for (Pronostikoa pi : p){
+				kuota += pi.getKuota();
+			}
+			double irabaz=0;
+			irabaz= apostua.getApustuDiru() * kuota;
+			Bezero b= apostua.getBezeroa();
+			String code2= b.getErabiltzailea();
+			Bezero bezero = db.find(Bezero.class, code2);
+			bezero.diruaSartu(irabaz);
+			Vector<Bezero> kopioiak = bezero.getKopioiak();
+			checkKopioiak(irabaz, b, kopioiak);
+		}
+		}
+	}
+
+	private static void checkKopioiak(double irabaz, Bezero b, Vector<Bezero> kopioiak) {
+		if(!kopioiak.isEmpty()) {
+			for(Bezero bk: kopioiak) {
+				double irabazDeskontu = irabaz *0.1;
+				bk.diruaSartu(irabaz -irabazDeskontu);
+				b.diruaSartu(irabazDeskontu);
+			}
+		}
 	}
 
 
