@@ -1,5 +1,6 @@
 package dataAccess;
 
+import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -119,36 +120,12 @@ public class DataAccess {
 			// admin sortu
 			Administratzaile admin1 = new Administratzaile("admin", "admin");
 
-			db.persist(q1);
-			db.persist(q2);
-			db.persist(q3);
-			db.persist(q4);
-			db.persist(q5);
-			db.persist(q6);
+			Event[] pGordetzekoEvents = {ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9, ev10,
+					ev11, ev12, ev13, ev14, ev15, ev16, ev17, ev18, ev19, ev20};
+			Question[] pGordetzekoQuestions = {q1, q2, q3, q4, q5, q6};
 
-			db.persist(ev1);
-			db.persist(ev2);
-			db.persist(ev3);
-			db.persist(ev4);
-			db.persist(ev5);
-			db.persist(ev6);
-			db.persist(ev7);
-			db.persist(ev8);
-			db.persist(ev9);
-			db.persist(ev10);
-			db.persist(ev11);
-			db.persist(ev12);
-			db.persist(ev13);
-			db.persist(ev14);
-			db.persist(ev15);
-			db.persist(ev16);
-			db.persist(ev17);
-			db.persist(ev18);
-			db.persist(ev19);
-			db.persist(ev20);
 
-			// admina datubasera gehitu
-			db.persist(admin1);
+			dbGorde(pGordetzekoEvents, pGordetzekoQuestions, admin1);
 
 			db.getTransaction().commit();
 			System.out.println("Db initialized");
@@ -157,6 +134,13 @@ public class DataAccess {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static void dbGorde(Event[] pGordetzekoEvents, Question[] pGordetzekoQuestions, Administratzaile admin1){
+		for(Question q:pGordetzekoQuestions) db.persist(q);
+		for(Event ev:pGordetzekoEvents) db.persist(ev);
+		// admina datubasera gehitu
+		db.persist(admin1);
 	}
 
 	/**
