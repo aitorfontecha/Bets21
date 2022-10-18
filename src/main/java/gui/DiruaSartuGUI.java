@@ -21,9 +21,10 @@ import javax.swing.SwingConstants;
 
 public class DiruaSartuGUI extends JFrame {
 
+	public static final ResourceBundle ETIQUETAS = ResourceBundle.getBundle("Etiquetas");
 	private JPanel contentPane;
 	private JTextField textFieldDiru;
-	private JButton jButtonClose = new JButton(ResourceBundle.getBundle("Etiquetas").getString("Close"));
+	private JButton jButtonClose = new JButton(ETIQUETAS.getString("Close"));
 	/**
 	 * Launch the application.
 	 */
@@ -44,7 +45,7 @@ public class DiruaSartuGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public DiruaSartuGUI() {
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("DiruaSartuGUI.this.title")); //$NON-NLS-1$ //$NON-NLS-2$
+		setTitle(ETIQUETAS.getString("DiruaSartuGUI.this.title")); //$NON-NLS-1$ //$NON-NLS-2$
 		
 		BLFacade bl = MainGUI.getBusinessLogic();
 		
@@ -59,7 +60,7 @@ public class DiruaSartuGUI extends JFrame {
 		lblNewLabel.setBounds(58, 110, 104, 16);
 		contentPane.add(lblNewLabel);
 		
-		JLabel labelErrorea = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("EmaitzaIpiniGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		JLabel labelErrorea = new JLabel(ETIQUETAS.getString("EmaitzaIpiniGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 		labelErrorea.setForeground(Color.RED);
 		labelErrorea.setBounds(261, 388, 172, 16);
 		getContentPane().add(labelErrorea);
@@ -71,7 +72,7 @@ public class DiruaSartuGUI extends JFrame {
 		contentPane.add(textFieldDiru);
 		textFieldDiru.setColumns(10);
 
-		JLabel ok_Label = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("DiruaSartuGUI.lblNewLabel_2.text"));
+		JLabel ok_Label = new JLabel(ETIQUETAS.getString("DiruaSartuGUI.lblNewLabel_2.text"));
 		ok_Label.setHorizontalAlignment(SwingConstants.CENTER);
 		ok_Label.setForeground(Color.GREEN);
 		ok_Label.setBounds(35, 141, 361, 13);
@@ -112,7 +113,7 @@ public class DiruaSartuGUI extends JFrame {
 		btnNewButton.setBounds(166, 186, 117, 29);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("DiruaSartuGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
+		JLabel lblNewLabel_1 = new JLabel(ETIQUETAS.getString("DiruaSartuGUI.lblNewLabel_1.text")); //$NON-NLS-1$ //$NON-NLS-2$
 		lblNewLabel_1.setBounds(35, 60, 246, 38);
 		contentPane.add(lblNewLabel_1);
 		

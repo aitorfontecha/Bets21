@@ -1,5 +1,6 @@
 package dataAccess;
 
+import java.sql.Array;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -119,36 +120,12 @@ public class DataAccess {
 			// admin sortu
 			Administratzaile admin1 = new Administratzaile("admin", "admin");
 
-			db.persist(q1);
-			db.persist(q2);
-			db.persist(q3);
-			db.persist(q4);
-			db.persist(q5);
-			db.persist(q6);
+			Event[] pGordetzekoEvents = {ev1, ev2, ev3, ev4, ev5, ev6, ev7, ev8, ev9, ev10,
+					ev11, ev12, ev13, ev14, ev15, ev16, ev17, ev18, ev19, ev20};
+			Question[] pGordetzekoQuestions = {q1, q2, q3, q4, q5, q6};
 
-			db.persist(ev1);
-			db.persist(ev2);
-			db.persist(ev3);
-			db.persist(ev4);
-			db.persist(ev5);
-			db.persist(ev6);
-			db.persist(ev7);
-			db.persist(ev8);
-			db.persist(ev9);
-			db.persist(ev10);
-			db.persist(ev11);
-			db.persist(ev12);
-			db.persist(ev13);
-			db.persist(ev14);
-			db.persist(ev15);
-			db.persist(ev16);
-			db.persist(ev17);
-			db.persist(ev18);
-			db.persist(ev19);
-			db.persist(ev20);
 
-			// admina datubasera gehitu
-			db.persist(admin1);
+			dbGorde(pGordetzekoEvents, pGordetzekoQuestions, admin1);
 
 			db.getTransaction().commit();
 			System.out.println("Db initialized");
@@ -157,6 +134,13 @@ public class DataAccess {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static void dbGorde(Event[] pGordetzekoEvents, Question[] pGordetzekoQuestions, Administratzaile admin1){
+		for(Question q:pGordetzekoQuestions) db.persist(q);
+		for(Event ev:pGordetzekoEvents) db.persist(ev);
+		// admina datubasera gehitu
+		db.persist(admin1);
 	}
 
 	/**
@@ -337,24 +321,7 @@ public class DataAccess {
 		if (pass1.equals(pass2)) { // Pasahitza ondo errepikatu behar da.
 			Pertsona p = db.find(Pertsona.class, username);
 			if (p == null) { // Erregistratu nahi den erabiltzailea oraindik ez da existitzen.
-				Date gaurkoa = new Date();
-				String formato = "yyyy";
-				SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
-				int unekoUrtea = Integer.parseInt(dateFormat.format(gaurkoa));
-				int jaiotzeUrtea = Integer.parseInt(dateFormat.format(jaiotzeData));
-				if (unekoUrtea - jaiotzeUrtea >= 18 && kredituTxartela.length() == 16) { // 18 urte baino gehiago eta
-					// txartela zebakia egokiak
-					// izan behar dira.
-					db.getTransaction().begin();
-					db.persist(bezero1);
-					db.getTransaction().commit();
-					System.out.println("Gordeta " + username);
-					aurkitua = true;
-				} else if (unekoUrtea - jaiotzeUrtea < 18) {
-					System.out.println("Ez dituzu 18 urte");
-				} else if (kredituTxartela.length() != 16) {
-					System.out.println("Kreditu txartelaren zenbakia ez da zuzena.");
-				}
+				aurkitua = isAurkitua(username, jaiotzeData, kredituTxartela, bezero1, aurkitua);
 			} else {
 				System.out.println("Dagoeneko erabiltzailea existitzen da.");
 			}
@@ -362,6 +329,28 @@ public class DataAccess {
 			System.out.println("Idatzitako bi pasahitzak ezberdinak");
 		}
 
+		return aurkitua;
+	}
+
+	private static boolean isAurkitua(String username, Date jaiotzeData, String kredituTxartela, Bezero bezero1, boolean aurkitua) {
+		Date gaurkoa = new Date();
+		String formato = "yyyy";
+		SimpleDateFormat dateFormat = new SimpleDateFormat(formato);
+		int unekoUrtea = Integer.parseInt(dateFormat.format(gaurkoa));
+		int jaiotzeUrtea = Integer.parseInt(dateFormat.format(jaiotzeData));
+		if (unekoUrtea - jaiotzeUrtea >= 18 && kredituTxartela.length() == 16) { // 18 urte baino gehiago eta
+			// txartela zebakia egokiak
+			// izan behar dira.
+			db.getTransaction().begin();
+			db.persist(bezero1);
+			db.getTransaction().commit();
+			System.out.println("Gordeta " + username);
+			aurkitua = true;
+		} else if (unekoUrtea - jaiotzeUrtea < 18) {
+			System.out.println("Ez dituzu 18 urte");
+		} else if (kredituTxartela.length() != 16) {
+			System.out.println("Kreditu txartelaren zenbakia ez da zuzena.");
+		}
 		return aurkitua;
 	}
 
@@ -402,40 +391,44 @@ public class DataAccess {
 		Pronostikoa pronostikoa1= db.find(Pronostikoa.class, pr.getIdPronostikoa());
 		galdera1.emaitzaIpini(pr);
 		for (Apostua apostua: pronostikoa1.getApostuak() ){
-			if(!apostua.getKopiatuta()) {
-			apostua.setEmaitzak(true);
-			Vector<Boolean> emaitzak=apostua.getEmaitzak();
-			double kuota=0;
-			if (!emaitzak.contains(false)){
-				Vector<Pronostikoa> p = apostua.getPronostikoa();
-				for (Pronostikoa pi : p){
-					kuota += pi.getKuota();
-				}
-				double irabaz=0;
-				irabaz= apostua.getApustuDiru() * kuota;
-				Bezero b= apostua.getBezeroa();
-				String code2= b.getErabiltzailea();
-				Bezero bezero = db.find(Bezero.class, code2);
-				bezero.diruaSartu(irabaz);
-				Vector<Bezero> kopioiak = bezero.getKopioiak();
-				if(!kopioiak.isEmpty()) {
-					for(Bezero bk: kopioiak) {
-						double irabazDeskontu = irabaz*0.1;
-						bk.diruaSartu(irabaz-irabazDeskontu);
-						b.diruaSartu(irabazDeskontu);
-					}
-					
-				}
-			}
-			
-			
-			}
-
+			checkApostua(apostua);
 		}
 
 		db.getTransaction().commit();
 		galdera1.inprimatuEmaitza();
 		return true;
+	}
+
+	private static void checkApostua(Apostua apostua) {
+		if(!apostua.getKopiatuta()) {
+		apostua.setEmaitzak(true);
+		Vector<Boolean> emaitzak= apostua.getEmaitzak();
+		double kuota=0;
+		if (!emaitzak.contains(false)){
+			Vector<Pronostikoa> p = apostua.getPronostikoa();
+			for (Pronostikoa pi : p){
+				kuota += pi.getKuota();
+			}
+			double irabaz=0;
+			irabaz= apostua.getApustuDiru() * kuota;
+			Bezero b= apostua.getBezeroa();
+			String code2= b.getErabiltzailea();
+			Bezero bezero = db.find(Bezero.class, code2);
+			bezero.diruaSartu(irabaz);
+			Vector<Bezero> kopioiak = bezero.getKopioiak();
+			checkKopioiak(irabaz, b, kopioiak);
+		}
+		}
+	}
+
+	private static void checkKopioiak(double irabaz, Bezero b, Vector<Bezero> kopioiak) {
+		if(!kopioiak.isEmpty()) {
+			for(Bezero bk: kopioiak) {
+				double irabazDeskontu = irabaz *0.1;
+				bk.diruaSartu(irabaz -irabazDeskontu);
+				b.diruaSartu(irabazDeskontu);
+			}
+		}
 	}
 
 
