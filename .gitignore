@@ -1,4 +1,4 @@
 /target/
-/.*
+.*
 Bets21.iml
 !/.git*
