@@ -93,26 +93,30 @@ public class DataAccess {
 			Question q5;
 			Question q6;
 
+			final String ganarPartidoString = "¿Quién ganará el partido?";
+			final String winMatchString = "Who will win the match?";
+			final String partiduaIrabaziString = "Zeinek irabaziko du partidua?";
 			if (Locale.getDefault().equals(new Locale("es"))) {
-				q1 = ev1.addQuestion("¿Quién ganará el partido?", 1);
+
+				q1 = ev1.addQuestion(ganarPartidoString, 1);
 				q2 = ev1.addQuestion("¿Quién meterá el primer gol?", 2);
-				q3 = ev11.addQuestion("¿Quién ganará el partido?", 1);
+				q3 = ev11.addQuestion(ganarPartidoString, 1);
 				q4 = ev11.addQuestion("¿Cuántos goles se marcarán?", 2);
-				q5 = ev17.addQuestion("¿Quién ganará el partido?", 1);
+				q5 = ev17.addQuestion(ganarPartidoString, 1);
 				q6 = ev17.addQuestion("¿Habrá goles en la primera parte?", 2);
 			} else if (Locale.getDefault().equals(new Locale("en"))) {
-				q1 = ev1.addQuestion("Who will win the match?", 1);
+				q1 = ev1.addQuestion(winMatchString, 1);
 				q2 = ev1.addQuestion("Who will score first?", 2);
-				q3 = ev11.addQuestion("Who will win the match?", 1);
+				q3 = ev11.addQuestion(winMatchString, 1);
 				q4 = ev11.addQuestion("How many goals will be scored in the match?", 2);
-				q5 = ev17.addQuestion("Who will win the match?", 1);
+				q5 = ev17.addQuestion(winMatchString, 1);
 				q6 = ev17.addQuestion("Will there be goals in the first half?", 2);
 			} else {
-				q1 = ev1.addQuestion("Zeinek irabaziko du partidua?", 1);
+				q1 = ev1.addQuestion(partiduaIrabaziString, 1);
 				q2 = ev1.addQuestion("Zeinek sartuko du lehenengo gola?", 2);
-				q3 = ev11.addQuestion("Zeinek irabaziko du partidua?", 1);
+				q3 = ev11.addQuestion(partiduaIrabaziString, 1);
 				q4 = ev11.addQuestion("Zenbat gol sartuko dira?", 2);
-				q5 = ev17.addQuestion("Zeinek irabaziko du partidua?", 1);
+				q5 = ev17.addQuestion(partiduaIrabaziString, 1);
 				q6 = ev17.addQuestion("Golak sartuko dira lehenengo zatian?", 2);
 
 			}
@@ -536,19 +540,7 @@ public class DataAccess {
 			db.persist(apostuAnitza);
 			Vector<Bezero> kopioiak= bezero.getKopioiak();
 			if(kopioiak != null) {
-				for(Bezero b : kopioiak) {
-					if (b.getDiruKop()>=diruKop) {
-						Apostua apostuAnitza2 = new Apostua(diruKop, bezero);
-						b.addMugimendua(-diruKop);
-						for (int i=0; i< pronostikoak.size(); i++) {
-							int  unekoa2 = pronostikoak.get(i).getIdPronostikoa();
-							Pronostikoa unekoPronostikoa2 = db.find(Pronostikoa.class, unekoa2);
-							unekoPronostikoa2.addApostua(apostuAnitza2);
-							apostuAnitza2.addPronostikoa(unekoPronostikoa2);
-						}
-				}
-				
-			}
+				kopioiakIteratu(pronostikoak, diruKop, bezero, kopioiak);
 			}
 			db.getTransaction().commit();
 			return apostuAnitza;
@@ -559,6 +551,22 @@ public class DataAccess {
 		}
 
 		
+	}
+
+	private void kopioiakIteratu(List<Pronostikoa> pronostikoak, double diruKop, Bezero bezero, Vector<Bezero> kopioiak){
+		for(Bezero b : kopioiak) {
+			if (b.getDiruKop()>= diruKop) {
+				Apostua apostuAnitza2 = new Apostua(diruKop, bezero);
+				b.addMugimendua(-diruKop);
+				for (int i = 0; i< pronostikoak.size(); i++) {
+					int  unekoa2 = pronostikoak.get(i).getIdPronostikoa();
+					Pronostikoa unekoPronostikoa2 = db.find(Pronostikoa.class, unekoa2);
+					unekoPronostikoa2.addApostua(apostuAnitza2);
+					apostuAnitza2.addPronostikoa(unekoPronostikoa2);
+				}
+		}
+
+		}
 	}
 
 	public List<Pertsona> getBezeroak(){

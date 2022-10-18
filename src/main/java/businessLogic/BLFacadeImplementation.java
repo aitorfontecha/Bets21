@@ -1,19 +1,16 @@
 package businessLogic;
 
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Vector;
-
-import javax.jws.WebMethod;
-import javax.jws.WebService;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 import domain.*;
 import exceptions.EventFinished;
 import exceptions.QuestionAlreadyExist;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * It implements the business logic as a web service.
