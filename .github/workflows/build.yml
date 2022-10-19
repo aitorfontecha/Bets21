@@ -35,10 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        args : >
-          Dsonar.java.coveragePlugin=jacoco
-          Dsonar.coverage.jacoco.xmlReportPaths=coverage.xml
-          Dsonar.tests=src/test/
+        with:
+          args : >
+            Dsonar.java.coveragePlugin=jacoco
+            Dsonar.coverage.jacoco.xmlReportPaths=coverage.xml
+            Dsonar.tests=src/test/
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
