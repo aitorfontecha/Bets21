@@ -77,7 +77,6 @@ public class storeGuestDABTest {
             String kredituTxartela = "0123456789012345";
 
             sut.storeGuest(username, "123", "321", jaiotzeData, kredituTxartela);
-            fail();
         } catch (Exception e) {
             assertTrue(true);
         }
@@ -100,7 +99,6 @@ public class storeGuestDABTest {
             String kredituTxartela = "0123456789012345";
 
             sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
-            fail();
         } catch (Exception e) {
             assertTrue(true);
         }
@@ -121,7 +119,6 @@ public class storeGuestDABTest {
                 e.printStackTrace();
             }
             sut.storeGuest(username, pass1, pass2, jaiotzeData, "012345678901234");
-            fail();
         } catch (Exception e) {
             assertTrue(true);
         }

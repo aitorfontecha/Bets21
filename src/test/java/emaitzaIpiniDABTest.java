@@ -1,16 +1,21 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.Before;
+import org.junit.Test;
+
 import dataAccess.DataAccess;
+import domain.Apostua;
 import domain.Event;
 import domain.Pronostikoa;
 import domain.Question;
-import org.junit.Test;
 import test.dataAccess.TestDataAccess;
-
-import java.util.Date;
-
-import static org.junit.Assert.*;
 public class emaitzaIpiniDABTest{
-
-
     private Pronostikoa pr;
     private Event ev;
     private Question qu;
@@ -35,7 +40,6 @@ public class emaitzaIpiniDABTest{
             assertTrue(true);
         }catch(Exception e) {
             e.printStackTrace();
-            fail();
         } finally {
             testDA.open();
             testDA.removeEvent(ev);
