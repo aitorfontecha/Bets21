@@ -20,31 +20,41 @@ public class emaitzaIpiniMockINTTest{
 
     @Test
     public void test1() {
-        sut.emaitzaIpini(new Question(), new Pronostikoa());
-        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(Mockito.any(Question.class),
-                Mockito.any(Pronostikoa.class));
+        Pronostikoa pr = new Pronostikoa();
+        Question qu = new Question();
+        sut.emaitzaIpini(qu, pr);
+        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(qu,
+                pr);
     }
 
     @Test
     public void test2() {
-        try {
-            Mockito.doThrow(new Exception()).when(dataAccess).emaitzaIpini(null, null);
-            sut.emaitzaIpini(new Question(), new Pronostikoa());
-            fail();
-        }catch(Exception e) {
-            assertTrue(true);
-        }
+        Pronostikoa pr = new Pronostikoa();
+        sut.emaitzaIpini(null, pr);
+        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(null, pr);
     }
 
     @Test
     public void test3() {
-        try {
-            Mockito.doThrow(new Exception()).when(dataAccess).emaitzaIpini(new Question(), new Pronostikoa());
-            sut.emaitzaIpini(new Question(), new Pronostikoa());
-            fail();
-        }catch(Exception e) {
-            assertTrue(true);
-        }
+        Question qu = new Question();
+        sut.emaitzaIpini(qu, null);
+        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(qu, null);
+    }
+
+    @Test
+    public void test4() {
+        Question qu = new Question();
+        Pronostikoa pr = new Pronostikoa();
+        sut.emaitzaIpini(qu, pr);
+        Mockito.verify(dataAccess).emaitzaIpini(qu, pr);
+    }
+
+    @Test
+    public void test5() {
+        Question qu = new Question();
+        Pronostikoa pr = new Pronostikoa();
+        sut.emaitzaIpini(qu, pr);
+        Mockito.verify(dataAccess).emaitzaIpini(qu, pr);
     }
 
 }

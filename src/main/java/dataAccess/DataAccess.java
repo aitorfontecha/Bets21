@@ -380,6 +380,7 @@ public class DataAccess {
 
 	public Pronostikoa pronostikoaIpini(Question galdera, Pronostikoa p) {
 		int code = galdera.getQuestionNumber();
+		db.getTransaction().rollback();
 		db.getTransaction().begin();
 		Question galdera1 = db.find(Question.class, code);
 		galdera1.pronostikoaGehitu(p);
@@ -523,7 +524,7 @@ public class DataAccess {
 	}
 
 
-	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {	
+	public Apostua apostuAnitzaEgin(List<Pronostikoa> pronostikoak, double diruKop, String username) {
 		db.getTransaction().begin();
 		Bezero bezero = db.find(Bezero.class, username);
 		if (bezero.getDiruKop()>=diruKop) {
