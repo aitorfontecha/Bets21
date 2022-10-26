@@ -27,24 +27,11 @@ public class emaitzaIpiniDABTest{
     //additional operations needed to execute the test
     TestDataAccess testDA = new TestDataAccess();
 
-    Pertsona per1;
-    Pertsona per2;
-
     Event event;
 
-
-    @Before
-    public void ireki(){
-        sut.open(false);
-        testDA.open();
-    }
-
-    @After
-    public void itxi(){
-        sut.close();
-        testDA.close();
-    }
-
+    /***
+     * Kopioik gabeko testa.
+     */
     @Test
     public void test1() {
         Question q = null;
@@ -52,8 +39,6 @@ public class emaitzaIpiniDABTest{
         Bezero per1 = null;
         ArrayList<Pronostikoa> pronostikoak1 = new ArrayList<>();
         ArrayList<Pronostikoa> pronostikoak2 = new ArrayList<>();
-
-        //Erabiltzaileak sortu
         try {
             sut.storeGuest("Proba1","Proba1", "Proba1",
                     UtilDate.newDate(2001, 01, 31), "1234567890123456");
@@ -61,12 +46,8 @@ public class emaitzaIpiniDABTest{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        //Galderak sortu
         event = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
         q = event.getQuestions().get(0);
-
-        //Pronostikoak sortu
         try {
             p1 = new Pronostikoa("A", 0.0);
             sut.pronostikoaIpini(q, p1);
@@ -74,9 +55,6 @@ public class emaitzaIpiniDABTest{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-        //Apustuak sortu
         sut.apostuAnitzaEgin(pronostikoak1, 0.0, "Proba1");
         assertTrue(sut.emaitzaIpini(q, p1));
         assertEquals(2, per1.getMugimenduak().size()); //TODO assert-ak hobetu mugimenduaren hasierako string-a konparatzeko eta ez mugimendu kantitatea
@@ -100,6 +78,39 @@ public class emaitzaIpiniDABTest{
         }catch(Exception e) {
             assertTrue(true);
         }
+    }
+
+    @Test
+    public void test4() {
+        Question q = null;
+        Pronostikoa p1 = null;
+        Bezero per1 = null;
+        Bezero per2 = null;
+        ArrayList<Pronostikoa> pronostikoak1 = new ArrayList<>();
+        ArrayList<Pronostikoa> pronostikoak2 = new ArrayList<>();
+        try {
+            sut.storeGuest("Proba1","Proba1", "Proba1",
+                    UtilDate.newDate(2001, 01, 31), "1234567890123456");
+            sut.storeGuest("Proba2", "Proba2", "Proba2",
+                    UtilDate.newDate(1996, 10, 9), "6543210987654321");
+            per1 = sut.getPertsona("Proba1");
+            per2 = sut.getPertsona("Proba2");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        event = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
+        q = event.getQuestions().get(0);
+        try {
+            p1 = new Pronostikoa("A", 0.0);
+            sut.pronostikoaIpini(q, p1);
+            pronostikoak1.add(p1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        sut.apostuAnitzaEgin(pronostikoak1, 0.0, "Proba1");
+        sut.kopiatu(per1, per2);
+        assertTrue(sut.emaitzaIpini(q, p1));
+        assertEquals(3, per1.getMugimenduak().size()); //TODO assert-ak hobetu mugimenduaren hasierako string-a konparatzeko eta ez mugimendu kantitatea
     }
 
 }

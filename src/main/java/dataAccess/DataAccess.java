@@ -380,7 +380,6 @@ public class DataAccess {
 
 	public Pronostikoa pronostikoaIpini(Question galdera, Pronostikoa p) {
 		int code = galdera.getQuestionNumber();
-		db.getTransaction().rollback();
 		db.getTransaction().begin();
 		Question galdera1 = db.find(Question.class, code);
 		galdera1.pronostikoaGehitu(p);
