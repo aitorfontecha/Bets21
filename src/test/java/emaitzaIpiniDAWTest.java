@@ -14,8 +14,6 @@ import org.junit.Test;
 import dataAccess.DataAccess;
 import test.dataAccess.TestDataAccess;
 
-import javax.rmi.CORBA.Util;
-
 public class emaitzaIpiniDAWTest {
 
     //sut:system under test
