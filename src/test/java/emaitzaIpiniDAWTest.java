@@ -3,17 +3,18 @@ import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+import configuration.UtilDate;
+import domain.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import dataAccess.DataAccess;
-import domain.Apostua;
-import domain.Event;
-import domain.Pronostikoa;
-import domain.Question;
 import test.dataAccess.TestDataAccess;
+
+import javax.rmi.CORBA.Util;
 
 public class emaitzaIpiniDAWTest {
 
@@ -28,78 +29,125 @@ public class emaitzaIpiniDAWTest {
     private Question qu;
     private Pronostikoa pr;
     private Apostua ap;
+    private Bezero per1;
+    private Bezero per2;
 
-    @Before
-    public void init() {
-
-    }
 
     @Test
     public void test1() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date oneDate=null;
+        Question q = null;
+        Pronostikoa p = null;
+
+        ev = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
         try {
-            oneDate = sdf.parse("05/10/2022");
-            testDA.open();
-            ev = testDA.addEventWithQuestion("Proba ebentua", oneDate, "Proba galdera",(float)1.0);
-            qu = ev.getQuestions().get(0);
-            testDA.addPronostikoa(pr);
-            testDA.close();
-        }catch(ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-            boolean emaitza = sut.emaitzaIpini(qu, pr);
-            int esperotakoEmaitza = 0;
-            assertTrue(emaitza);
-        }catch(Exception e) {
+            q = ev.getQuestions().firstElement();
+            p = new Pronostikoa("D", 0.0);
+            p = sut.pronostikoaIpini(q, p);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
+        assertTrue(sut.emaitzaIpini(q, p));
     }
     @Test
     public void test2() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date oneDate=null;
+        Question q = null;
+        Pronostikoa p1 = null;
+        Pronostikoa p2 = null;
+        ArrayList<Pronostikoa> pronostikoak = new ArrayList<>();
         try {
-            oneDate = sdf.parse("05/10/2022");
-            testDA.open();
-            ev = testDA.addEventWithQuestion("Proba ebentua", oneDate, "Proba galdera",(float)1.0);
-            qu = ev.getQuestions().get(0);
-            pr = testDA.addPronostikoaWithApustuak();
-            testDA.close();
-        }catch(ParseException e) {
+            sut.storeGuest("Proba1", "Proba1", "Proba1",
+                    UtilDate.newDate(2001, 01,31), "1234567890123456");
+            per1 = sut.getPertsona("Proba1");
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        ev = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
+        q = ev.getQuestions().firstElement();
+        try {
+            p1 = new Pronostikoa("A", 0.0);
+            p2 = new Pronostikoa("B", 0.0);
+            p1 = sut.pronostikoaIpini(q, p1);
+            p2 = sut.pronostikoaIpini(q, p2);
+            pronostikoak.add(p1);
+            pronostikoak.add(p2);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
-            boolean emaitza = sut.emaitzaIpini(qu, pr);
-            assertTrue(emaitza);
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
+        sut.apostuAnitzaEgin(pronostikoak, 0.0, "Proba1");
+        assertTrue(sut.emaitzaIpini(q, p1));
     }
 
     @Test
     public void test3() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date oneDate=null;
+        Question q = null;
+        Pronostikoa p1 = null;
+        per1 = null;
+        ArrayList<Pronostikoa> pronostikoak = new ArrayList<>();
+
+        //Erabiltzaileak sortu
         try {
-            oneDate = sdf.parse("05/10/2022");
-            testDA.open();
-            ev = testDA.addEventWithQuestion("Proba ebentua", oneDate, "Proba galdera",(float)1.0);
-            qu = ev.getQuestions().get(0);
-            pr = testDA.addPronostikoaWithApustuak();
-            testDA.close();
-        }catch(ParseException e) {
+            sut.storeGuest("Proba1", "Proba1", "Proba1",
+                    UtilDate.newDate(2001, 1,31), "1234567890123456");
+            per1 = sut.getPertsona("Proba1");
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        //Galderak sortu
+        ev = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
+        q = ev.getQuestions().firstElement();
+
+        //Pronostikoak sortu
+        try {
+            p1 = new Pronostikoa("A", 0.0);
+            p1 = sut.pronostikoaIpini(q, p1);
+            pronostikoak.add(p1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //Apustuak sortu (mugimendu bat sortzen da)
+        sut.apostuAnitzaEgin(pronostikoak, 0.0, "Proba1");
+        assertTrue(sut.emaitzaIpini(q, p1));
+    }
+
+    @Test
+    public void test4(){
+        Question q = null;
+        Pronostikoa p1 = null;
+        per1 = null;
+        ArrayList<Pronostikoa> pronostikoak = new ArrayList<>();
+
+        //Erabiltzaileak sortu
         try {
-            ap = pr.getApostuak().get(0);
-            boolean emaitza = sut.emaitzaIpini(qu, pr);
-            assertTrue(emaitza);
-        }catch(Exception e) {
+            sut.storeGuest("Proba1", "Proba1", "Proba1",
+                    UtilDate.newDate(2001, 1,31), "1234567890123456");
+            sut.storeGuest("Proba2", "Proba2", "Proba2",
+                    UtilDate.newDate(1996, 10, 9), "6543210987654321");
+            per1 = sut.getPertsona("Proba1");
+            per2 = sut.getPertsona("Proba2");
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        //Galderak sortu
+        ev = testDA.addEventWithQuestion("E", new Date(), "Q", 0);
+        q = ev.getQuestions().firstElement();
+
+        //Pronostikoak sortu
+        try {
+            p1 = new Pronostikoa("A", 0.0);
+            p1 = sut.pronostikoaIpini(q, p1);
+            pronostikoak.add(p1);
+        } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //Apustuak sortu (mugimendu bat sortzen da)
+        sut.apostuAnitzaEgin(pronostikoak, 0.0, "Proba1");
+        sut.kopiatu(per1, per2);
+        assertTrue(sut.emaitzaIpini(q, p1));
     }
 
 }

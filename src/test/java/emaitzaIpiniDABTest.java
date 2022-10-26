@@ -42,7 +42,7 @@ public class emaitzaIpiniDABTest{
         try {
             sut.storeGuest("Proba1","Proba1", "Proba1",
                     UtilDate.newDate(2001, 01, 31), "1234567890123456");
-            per1 = (Bezero)sut.getBezeroak().get(0);
+            per1 = (Bezero)sut.getPertsona("Proba1");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,26 +62,6 @@ public class emaitzaIpiniDABTest{
 
     @Test
     public void test2() {
-        try {
-            sut.emaitzaIpini(null, null);
-            fail();
-        }catch(Exception e) {
-            assertTrue(true);
-        }
-    }
-
-    @Test
-    public void test3() {
-        try {
-            sut.emaitzaIpini(qu, pr);
-            fail();
-        }catch(Exception e) {
-            assertTrue(true);
-        }
-    }
-
-    @Test
-    public void test4() {
         Question q = null;
         Pronostikoa p1 = null;
         Bezero per1 = null;
@@ -110,7 +90,30 @@ public class emaitzaIpiniDABTest{
         sut.apostuAnitzaEgin(pronostikoak1, 0.0, "Proba1");
         sut.kopiatu(per1, per2);
         assertTrue(sut.emaitzaIpini(q, p1));
-        assertEquals(3, per1.getMugimenduak().size()); //TODO assert-ak hobetu mugimenduaren hasierako string-a konparatzeko eta ez mugimendu kantitatea
+        assertEquals(5, per1.getMugimenduak().size()); //TODO assert-ak hobetu mugimenduaren hasierako string-a konparatzeko eta ez mugimendu kantitatea
     }
+
+    @Test
+    public void test3() {
+        try {
+            sut.emaitzaIpini(null, null);
+            fail();
+        }catch(Exception e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test4() {
+        try {
+            sut.emaitzaIpini(qu, pr);
+            fail();
+        }catch(Exception e) {
+            assertTrue(true);
+        }
+    }
+
+
+
 
 }
