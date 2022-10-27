@@ -1,0 +1,955 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:17:40 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 9028@DESKTOP-M901S3E
+
+[2022-10-27 18:17:40 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:17:40 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:17:40 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:17:40 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:17:40 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:17:40 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:17:40 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:17:40 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:17:40 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:17:40 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:17:40 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:17:40 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:17:40 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:17:40 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:17:40 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:17:40 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:19:18 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 8748@DESKTOP-M901S3E
+
+[2022-10-27 18:19:19 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:19:19 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:19:19 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:19:19 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:19:19 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:19:19 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:19:19 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:19:19 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:19:19 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:19:19 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:19:19 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:19:19 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:19:19 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:19:19 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:19:19 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:19:19 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:19:57 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 13388@DESKTOP-M901S3E
+
+[2022-10-27 18:19:58 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:19:58 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:19:58 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:19:58 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:19:58 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:19:58 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:19:58 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:19:58 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:19:58 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:19:58 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:19:58 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:19:58 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:19:58 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:19:58 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:19:58 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:19:58 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:20:54 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 8832@DESKTOP-M901S3E
+
+[2022-10-27 18:20:54 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:20:54 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:20:54 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:20:54 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:20:54 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:20:54 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:20:54 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:20:54 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:20:54 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:20:54 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:20:54 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:20:54 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:20:54 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:20:54 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:20:54 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:20:54 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:21:12 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 8968@DESKTOP-M901S3E
+
+[2022-10-27 18:21:12 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:21:12 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:21:12 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:21:12 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:21:12 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:21:12 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:21:12 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:21:12 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:21:12 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:21:12 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:21:12 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:21:12 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:21:12 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:21:12 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:21:12 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:21:12 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:22:57 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 6876@DESKTOP-M901S3E
+
+[2022-10-27 18:22:57 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:22:57 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:22:57 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:22:57 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:22:57 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:22:57 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:22:57 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:22:57 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:22:57 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:22:57 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:22:57 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:22:57 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:22:57 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:22:57 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:22:57 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:22:57 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:24:32 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 11172@DESKTOP-M901S3E
+
+[2022-10-27 18:24:32 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:24:32 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:24:33 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:24:33 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:24:33 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:24:33 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:24:33 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:24:33 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:24:33 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:24:33 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:24:33 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:24:33 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:24:33 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:24:33 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:24:33 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:24:33 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:25:13 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 7988@DESKTOP-M901S3E
+
+[2022-10-27 18:25:13 #2 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:25:13 #3 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:25:13 #4 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:25:13 #5 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:25:13 #6 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:25:13 #7 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:25:13 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:25:13 #9 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:25:13 #10 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:25:13 #11 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:25:13 #12 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:25:13 #13 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:25:13 #14 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:25:13 #15 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:25:13 #16 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:25:13 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:25:13 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:25:13 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:25:13 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:29:00 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 13460@DESKTOP-M901S3E
+
+[2022-10-27 18:29:00 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:29:00 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:29:00 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:29:00 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:29:00 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:29:00 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:29:00 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:29:00 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:29:00 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:29:00 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:29:00 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:29:00 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:29:00 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:29:00 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:29:00 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:29:00 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:29:00 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:29:00 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:29:00 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:32:27 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 668@DESKTOP-M901S3E
+
+[2022-10-27 18:32:28 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:32:28 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:32:28 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:32:28 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:32:28 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:32:28 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:32:28 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:32:28 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:32:28 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:32:28 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:32:28 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:32:28 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:32:28 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:32:28 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:32:28 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:32:28 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:32:28 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:32:28 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:32:28 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:33:08 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 11144@DESKTOP-M901S3E
+
+[2022-10-27 18:33:08 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:33:08 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:33:08 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:33:08 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:33:08 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:33:08 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:33:08 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:33:08 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:33:08 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:33:08 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:33:08 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:33:08 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:33:08 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:33:08 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:33:08 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:33:08 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:33:08 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:33:08 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:33:08 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:33:34 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 15060@DESKTOP-M901S3E
+
+[2022-10-27 18:33:35 #2 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:33:35 #3 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:33:35 #4 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:33:35 #5 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:33:35 #6 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:33:35 #7 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:33:35 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:33:35 #9 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:33:35 #10 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:33:35 #11 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:33:35 #12 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:33:35 #13 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:33:35 #14 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:33:35 #15 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:33:35 #16 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:33:35 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:33:35 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:33:35 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:33:35 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:34:19 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 8140@DESKTOP-M901S3E
+
+[2022-10-27 18:34:20 #2 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:34:20 #3 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:34:20 #4 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:34:20 #5 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:34:20 #6 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:34:20 #7 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:34:20 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:34:20 #9 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:34:20 #10 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:34:20 #11 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:34:20 #12 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:34:20 #13 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:34:20 #14 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:34:20 #15 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:34:20 #16 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:34:20 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+[2022-10-27 18:34:20 #18 type.registry] 
+New type java.util.Vector<domain.Question>
+
+[2022-10-27 18:34:20 #19 type.registry] 
+New type java.util.Vector<domain.Pronostikoa>
+
+[2022-10-27 18:34:20 #20 type.registry] 
+New type java.util.Vector<java.lang.Boolean>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:38:53 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 13156@DESKTOP-M901S3E
+
+[2022-10-27 18:38:54 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:38:54 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:38:54 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:38:54 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:38:54 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:38:54 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:38:54 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:38:54 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:38:54 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:38:54 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:38:54 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:38:54 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:38:54 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:38:54 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:38:54 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:38:54 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:39:19 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 6808@DESKTOP-M901S3E
+
+[2022-10-27 18:39:19 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:39:19 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:39:19 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:39:19 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:39:19 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:39:19 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:39:19 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:39:19 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:39:19 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:39:19 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:39:19 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:39:19 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:39:19 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:39:19 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:39:19 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:39:19 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:52:12 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 5104@DESKTOP-M901S3E
+
+[2022-10-27 18:52:12 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:52:12 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:52:12 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:52:12 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:52:12 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:52:12 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:52:12 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:52:12 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:52:12 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:52:12 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:52:12 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:52:12 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:52:12 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:52:12 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:52:12 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:52:12 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-10-27 18:53:39 #1 store] 
+Database 'C:\Users\aitor\Desktop\Clase\HIRUGARREN MAILA\SI2\Bets21\src\main\resources\bets.temp' is opened by 8500@DESKTOP-M901S3E
+
+[2022-10-27 18:53:40 #2 type.registry] 
+New type domain.Pertsona
+
+[2022-10-27 18:53:40 #3 type] 
+Type domain.Pertsona is not enhanced.
+
+[2022-10-27 18:53:40 #4 type.registry] 
+New type domain.Bezero
+
+[2022-10-27 18:53:40 #5 type] 
+Type domain.Bezero is not enhanced.
+
+[2022-10-27 18:53:40 #6 type.registry] 
+New type java.util.Vector<java.lang.Double>
+
+[2022-10-27 18:53:40 #7 type.registry] 
+New type java.util.Vector<domain.Bezero>
+
+[2022-10-27 18:53:40 #8 type.registry] 
+New type domain.Apostua
+
+[2022-10-27 18:53:40 #9 type.registry] 
+New type java.util.Vector<domain.Apostua>
+
+[2022-10-27 18:53:40 #10 type] 
+Type domain.Apostua is not enhanced.
+
+[2022-10-27 18:53:40 #11 type.registry] 
+New type domain.Pronostikoa
+
+[2022-10-27 18:53:40 #12 type] 
+Type domain.Pronostikoa is not enhanced.
+
+[2022-10-27 18:53:40 #13 type.registry] 
+New type domain.Question
+
+[2022-10-27 18:53:40 #14 type] 
+Type domain.Question is not enhanced.
+
+[2022-10-27 18:53:40 #15 type.registry] 
+New type domain.Event
+
+[2022-10-27 18:53:40 #16 type] 
+Type domain.Event is not enhanced.
+
+[2022-10-27 18:53:40 #17 type.registry] 
+New type java.util.Vector<java.lang.Object>
+

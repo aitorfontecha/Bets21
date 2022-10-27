@@ -42,11 +42,35 @@ public class storeGuestDAWTest {
             fail();
         }
     }
-
     @Test
     public void test2() {
         try {
             String username = "Aitor";
+            String pass1 = "1234";
+            String pass2 = "1234";
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Date jaiotzeData=null;;
+            try {
+                jaiotzeData = sdf.parse("17/07/2000");
+            } catch (ParseException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            String kredituTxartela = "0123456789012345";
+
+            testDA.open();
+            Boolean aurkituta = sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
+            testDA.close();
+
+            assertEquals(false, aurkituta);
+        } catch (Exception e) {
+            fail();
+        }
+    }
+    @Test
+    public void test3() {
+        try {
+            String username = "test3";
             String pass1 = "1234";
             String pass2 = "0000";
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -70,35 +94,9 @@ public class storeGuestDAWTest {
     }
 
     @Test
-    public void test3() {
-        try {
-            String username = "Aitor";
-            String pass1 = "1234";
-            String pass2 = "1234";
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date jaiotzeData=null;;
-            try {
-                jaiotzeData = sdf.parse("17/07/2000");
-            } catch (ParseException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            String kredituTxartela = "0123456789012345";
-
-            testDA.open();
-            Boolean aurkituta = sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
-            testDA.close();
-
-            assertEquals(false, aurkituta);
-        } catch (Exception e) {
-            fail();
-        }
-    }
-
-    @Test
     public void test4() {
         try {
-            String username = "Aitor";
+            String username = "test4";
             String pass1 = "1234";
             String pass2 = "1234";
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -121,10 +119,12 @@ public class storeGuestDAWTest {
         }
     }
 
+
+
     @Test
     public void test5() {
         try {
-            String username = "Aitor";
+            String username = "test5";
             String pass1 = "1234";
             String pass2 = "1234";
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

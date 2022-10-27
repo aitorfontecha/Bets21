@@ -23,8 +23,7 @@ public class emaitzaIpiniMockINTTest{
         Pronostikoa pr = new Pronostikoa();
         Question qu = new Question();
         sut.emaitzaIpini(qu, pr);
-        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(qu,
-                pr);
+        Mockito.verify(dataAccess, Mockito.times(1)).emaitzaIpini(qu,pr);
     }
 
     @Test

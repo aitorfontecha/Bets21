@@ -39,31 +39,51 @@ public class storeGuestMockINTTest {
 
     @Test
     public void test1() {
-
-
         sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
-        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(Mockito.any(String.class), Mockito.any(String.class), Mockito.any(String.class), Mockito.any(Date.class), Mockito.any(String.class));
-
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
     }
 
     @Test
     public void test2() {
-        try {
-            ArgumentCaptor<String> usernameCaptor = ArgumentCaptor.forClass(String.class);
-            ArgumentCaptor<String> pass1Captor = ArgumentCaptor.forClass(String.class);
-            ArgumentCaptor<String> pass2Captor = ArgumentCaptor.forClass(String.class);
-            ArgumentCaptor<Date> jaiotzeDataCaptor = ArgumentCaptor.forClass(Date.class);
-            ArgumentCaptor<String> kredituTxartelaCaptor = ArgumentCaptor.forClass(String.class);
-            sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
-            Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(usernameCaptor.capture(), pass1Captor.capture(), pass2Captor.capture(), jaiotzeDataCaptor.capture(), kredituTxartelaCaptor.capture());
-            assertEquals(usernameCaptor.getValue(), username);
-            assertEquals(pass1Captor.getValue(), pass1);
-            assertEquals(pass2Captor.getValue(), pass2);
-            assertEquals(jaiotzeDataCaptor.getValue(), jaiotzeData);
-            assertEquals(kredituTxartelaCaptor.getValue(), kredituTxartela);
-        } catch (Exception e) {
-            fail();
-        }
+        sut.storeGuest(null, pass1, pass2, jaiotzeData, kredituTxartela);
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(null, pass1, pass2, jaiotzeData, kredituTxartela);
+    }
+    @Test
+    public void test3() {
+        sut.storeGuest(username, null, null, jaiotzeData, kredituTxartela);
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(username, null, null, jaiotzeData, kredituTxartela);
+    }
 
+    @Test
+    public void test4() {
+        sut.storeGuest(username, pass1, pass2, null, kredituTxartela);
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(username, pass1, pass2, null, kredituTxartela);
+    }
+    @Test
+    public void test5() {
+        sut.storeGuest(username, pass1, pass2, jaiotzeData, null);
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(username, pass1, pass2, jaiotzeData, null);
+    }
+
+    @Test
+    public void test6() {
+        sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
+        ArgumentCaptor<String> usernameCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> pass1Captor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<String> pass2Captor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<Date> jaiotzeDataCaptor = ArgumentCaptor.forClass(Date.class);
+        ArgumentCaptor<String> kredituTxartelaCaptor = ArgumentCaptor.forClass(String.class);
+        Mockito.verify(dataAccess, Mockito.times(1)).storeGuest(usernameCaptor.capture(), pass1Captor.capture(), pass2Captor.capture(), jaiotzeDataCaptor.capture(), kredituTxartelaCaptor.capture());
+        assertEquals(username, usernameCaptor.getValue());
+        assertEquals(pass1, pass1Captor.getValue());
+        assertEquals(pass2, pass2Captor.getValue());
+        assertEquals(jaiotzeData, jaiotzeDataCaptor.getValue());
+        assertEquals(kredituTxartela, kredituTxartelaCaptor.getValue());
+    }
+
+    @Test
+    public void test7(){
+        sut.storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
+        Mockito.verify(dataAccess).storeGuest(username, pass1, pass2, jaiotzeData, kredituTxartela);
     }
 }
