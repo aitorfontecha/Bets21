@@ -13,6 +13,8 @@ import businessLogic.BLFacadeImplementation;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 
+import businessLogic.FactoryLaunch;
+
 public class ApplicationLauncher {
 
 	public static void main(String[] args) {
@@ -36,7 +38,7 @@ public class ApplicationLauncher {
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 
 			if (c.isBusinessLogicLocal()) {
-
+/*
 				// In this option the DataAccess is created by FacadeImplementationWS
 				// appFacadeInterface=new BLFacadeImplementation();
 
@@ -44,13 +46,15 @@ public class ApplicationLauncher {
 				// object)
 
 				DataAccess da = new DataAccess(c.getDataBaseOpenMode().equals("initialize"));
-				appFacadeInterface = new BLFacadeImplementation(da);
+				appFacadeInterface = new BLFacadeImplementation(da);*/
+
+				appFacadeInterface = FactoryLaunch.createBLFacade(0);
 
 			}
 
 			else { // If remote
 
-				String serviceName = "http://" + c.getBusinessLogicNode() + ":" + c.getBusinessLogicPort() + "/ws/"
+/*				String serviceName = "http://" + c.getBusinessLogicNode() + ":" + c.getBusinessLogicPort() + "/ws/"
 						+ c.getBusinessLogicName() + "?wsdl";
 
 				//URL url = new URL("http://localhost:9999/ws/ruralHouses?wsdl");
@@ -63,7 +67,9 @@ public class ApplicationLauncher {
 
 				Service service = Service.create(url, qname);
 
-				appFacadeInterface = service.getPort(BLFacade.class);
+				appFacadeInterface = service.getPort(BLFacade.class);*/
+
+				appFacadeInterface = FactoryLaunch.createBLFacade(1);
 			}
 			/*
 			 * if (c.getDataBaseOpenMode().equals("initialize"))
