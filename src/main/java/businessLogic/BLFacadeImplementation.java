@@ -11,6 +11,7 @@ import javax.jws.WebService;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Vector;
 
 /**
  * It implements the business logic as a web service.
@@ -83,11 +84,11 @@ public class BLFacadeImplementation implements BLFacade {
 	 * @return collection of events
 	 */
 	@WebMethod
-	public List<Event> getEvents(Date date) {
+	public ExtendedIterator<Event> getEvents(Date date) {
 		dbManager.open(false);
-		List<Event> events = dbManager.getEvents(date);
+		Vector<Event> events = dbManager.getEvents(date);
 		dbManager.close();
-		return events;
+		return new ExtendedIteratorImplementation<>(events);
 	}
 	
 	@WebMethod
