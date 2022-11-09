@@ -13,8 +13,6 @@ import businessLogic.BLFacadeImplementation;
 import configuration.ConfigXML;
 import dataAccess.DataAccess;
 
-import businessLogic.FactoryLaunch;
-
 public class ApplicationLauncher {
 
 	public static void main(String[] args) {
@@ -30,14 +28,14 @@ public class ApplicationLauncher {
 		MainGUI a = new MainGUI();
 		a.setVisible(true);
 
-		FactoryLaunch factory = new FactoryLaunch();
-		BLFacade appFacadeInterface;
 		try {
+
+			BLFacade appFacadeInterface;
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel");
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 
-/*			if (c.isBusinessLogicLocal()) {
+			if (c.isBusinessLogicLocal()) {
 
 				// In this option the DataAccess is created by FacadeImplementationWS
 				// appFacadeInterface=new BLFacadeImplementation();
@@ -67,11 +65,11 @@ public class ApplicationLauncher {
 
 				appFacadeInterface = service.getPort(BLFacade.class);
 			}
-			*//*
+			/*
 			 * if (c.getDataBaseOpenMode().equals("initialize"))
 			 * appFacadeInterface.initializeBD();
-			 *//*
-			MainGUI.setBussinessLogic(appFacadeInterface);*/
+			 */
+			MainGUI.setBussinessLogic(appFacadeInterface);
 
 		} catch (Exception e) {
 			a.jLabelSelectOption.setText("Error: " + e.toString());
@@ -79,8 +77,6 @@ public class ApplicationLauncher {
 
 			System.out.println("Error in ApplicationLauncher: " + e.toString());
 		}
-			appFacadeInterface = factory.createBLFacade();
-			MainGUI.setBussinessLogic(appFacadeInterface);
 		// a.pack();
 
 	}
