@@ -10,26 +10,40 @@ public class ExtendedIteratorTest {
 
     public static void main(String[] args) {
 
-        boolean isLocal=true;
-        //Facade objektua lortu lehendabiziko ariketa erabiliz
+        // Facade objektua lortu lehendabiziko ariketa erabiliz
         FactoryLaunch factoryLaunch = new FactoryLaunch();
-        BLFacade facadeInterface;
-        facadeInterface = factoryLaunch.createBLFacade(0);
+        BLFacade facade;
+        facade = factoryLaunch.createBLFacade();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
+        Date date;
+        try {
+            date = sdf.parse("01/12/2022");
 
-        Date gaur = new Date();
-        ExtendedIterator<Event> i=facadeInterface.getEvents(gaur);
-        Event ev;
-        i.goLast();
-        while (i.hasPrevious()){
-            ev = i.previous();
-            System.out.println(ev.toString());
-        }
-        //Nahiz eta suposatu hasierara ailegatu garela, eragiketa egiten dugu.
-        i.goFirst();
-        while (i.hasNext()){
-            ev = (Event) i.next();
-            System.out.println(ev.toString());
+            ExtendedIterator<Event> i = facade.getEvents(date);
+
+            Event ev;
+            System.out.println("ATZETIK AURRERA ORDENATUA");
+
+            i.goLast();
+
+            while (i.hasPrevious()) {
+                ev = i.previous();
+                System.out.println(ev.toString());
+            }
+
+            System.out.println("AURRETIK ATZERA ORDENATUA");
+
+            i.goFirst();
+
+            while (i.hasNext()) {
+                ev = i.next();
+                System.out.println(ev.toString());
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
     }
+
 }

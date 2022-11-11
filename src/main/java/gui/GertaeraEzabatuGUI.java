@@ -27,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import businessLogic.ExtendedIterator;
 import com.toedter.calendar.JCalendar;
 
 import businessLogic.BLFacade;
@@ -139,9 +140,9 @@ public class GertaeraEzabatuGUI extends JFrame {
 					try {
 						BLFacade facade = MainGUI.getBusinessLogic();
 
-						List<Event> events = facade.getEvents(firstDay);
-
-						if (events.isEmpty())
+						ExtendedIterator<domain.Event> events = facade.getEvents(firstDay);
+						events.goFirst();
+						if (!events.hasNext())
 							jLabelListOfEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")
 									+ ": " + dateformat1.format(calendarAct.getTime()));
 						else
@@ -150,11 +151,11 @@ public class GertaeraEzabatuGUI extends JFrame {
 						jComboBoxEvents.removeAllItems();
 						System.out.println("Events " + events);
 
-						for (domain.Event ev : events)
-							modelEvents.addElement(ev);
+						while (events.hasNext())
+							modelEvents.addElement(events.next());
 						jComboBoxEvents.repaint();
 
-						if (events.size() == 0)
+						if (!events.hasNext())
 							buttonEzabatu.setEnabled(false);
 						else
 							buttonEzabatu.setEnabled(true);

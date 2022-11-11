@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+import businessLogic.ExtendedIterator;
 import com.toedter.calendar.JCalendar;
 
 import businessLogic.BLFacade;
@@ -169,9 +170,9 @@ public class CreateQuestionGUI extends JFrame {
 					try {
 						BLFacade facade = MainGUI.getBusinessLogic();
 
-						List<Event> events = facade.getEvents(firstDay);
+						ExtendedIterator<domain.Event> events = facade.getEvents(firstDay);
 
-						if (events.isEmpty())
+						if (!events.hasNext())
 							jLabelListOfEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")
 									+ ": " + dateformat1.format(calendarAct.getTime()));
 						else
@@ -180,11 +181,13 @@ public class CreateQuestionGUI extends JFrame {
 						jComboBoxEvents.removeAllItems();
 						System.out.println("Events " + events);
 
-						for (domain.Event ev : events)
-							modelEvents.addElement(ev);
+						events.goFirst();
+
+						while (events.hasNext())
+							modelEvents.addElement(events.next());
 						jComboBoxEvents.repaint();
 
-						if (events.size() == 0)
+						if (!events.hasNext())
 							jButtonCreate.setEnabled(false);
 						else
 							jButtonCreate.setEnabled(true);

@@ -30,6 +30,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import businessLogic.ExtendedIterator;
 import com.toedter.calendar.JCalendar;
 
 import businessLogic.BLFacade;
@@ -157,9 +158,9 @@ public class ApostuEginGUI extends JFrame {
 					try {
 						BLFacade facade = MainGUI.getBusinessLogic();
 
-						List<Event> events = facade.getEvents(firstDay);
-
-						if (events.isEmpty())
+						ExtendedIterator<domain.Event> events = facade.getEvents(firstDay);
+						events.goFirst();
+						if (!events.hasNext())
 							jLabelListOfEvents.setText(ResourceBundle.getBundle("Etiquetas").getString("NoEvents")
 									+ ": " + dateformat1.format(calendarAct.getTime()));
 						else
@@ -167,12 +168,12 @@ public class ApostuEginGUI extends JFrame {
 									+ dateformat1.format(calendarAct.getTime()));
 						jComboBoxEvents.removeAllItems();
 						System.out.println("Events " + events);
-
-						for (domain.Event ev : events)
-							modelEvents.addElement(ev);
+						events.goFirst();
+						while (events.hasNext())
+							modelEvents.addElement(events.next());
 						jComboBoxEvents.repaint();
 
-						if (events.size() == 0)
+						if (!events.hasNext())
 							buttonGorde.setEnabled(false);
 						else
 							buttonGorde.setEnabled(true);
