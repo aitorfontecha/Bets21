@@ -28,7 +28,7 @@ public class Pronostikoa implements Serializable {
     private String aukera;
     private double kuota;
     @XmlIDREF
-    @OneToOne(orphanRemoval=true)
+    @OneToOne
     private Question galdera;
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     private List<Apostua> apostuak;

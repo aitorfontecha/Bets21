@@ -30,3 +30,8 @@ replay_pid*
 *.log
 *.temp$
 *.temp
+.idea/sonarlint/issuestore/index.pb
+Bets21.iml
+src/main/resources/bets.temp
+src/main/resources/bets.temp$
+src/main/resources/log/odb20221027.log

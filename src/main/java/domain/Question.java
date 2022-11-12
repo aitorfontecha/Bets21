@@ -30,9 +30,10 @@ public class Question implements Serializable {
 	private String question;
 	private float betMinimum;
 	private String result;
+	@OneToOne
 	@XmlIDREF
 	private Event event;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Pronostikoa> pronostikoak;
 	@OneToOne(orphanRemoval=true)
 	private Pronostikoa emaitza;
@@ -160,7 +161,6 @@ public class Question implements Serializable {
 	}
 	
 	public void pronostikoaGehitu(Pronostikoa p) {
-
 			this.pronostikoak.add(p);
 		}
 	

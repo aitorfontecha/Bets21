@@ -1,18 +1,23 @@
 package gui;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import businessLogic.BLFacade;
+import domain.Bezero;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
 
 public class GuestOptionGUI extends JFrame {
+	
+	private static final long serialVersionUID = 6458065498915389023L;
 
 	private JPanel contentPane;
 	private JButton jButtonClose = new JButton(ResourceBundle.getBundle("Etiquetas").getString("Close"));
@@ -36,6 +41,9 @@ public class GuestOptionGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public GuestOptionGUI() {
+		
+		BLFacade bl = MainGUI.getBusinessLogic();
+		
 		setTitle(ResourceBundle.getBundle("Etiquetas").getString("GuestOptionGUI.this.title")); //$NON-NLS-1$ //$NON-NLS-2$
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -124,6 +132,16 @@ public class GuestOptionGUI extends JFrame {
 		buttonFamatuenak.setBounds(141, 208, 156, 29);
 		contentPane.add(buttonFamatuenak);
 		
+		JButton buttonIkusi = new JButton("Apostuak ikusi"); //$NON-NLS-1$ //$NON-NLS-2$
+		buttonIkusi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Bezero bezeroa = bl.getPertsona(bl.getUser());
+				JFrame a = new ApostuakIkusiGUI(bezeroa);
+				a.setVisible(true);
+			}
+		});
+		buttonIkusi.setBounds(0, 130, 135, 29);
+		contentPane.add(buttonIkusi);
 		
 		
 	}

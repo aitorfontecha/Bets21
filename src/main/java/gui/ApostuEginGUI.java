@@ -171,11 +171,7 @@ public class ApostuEginGUI extends JFrame {
 						events.goFirst();
 						while (events.hasNext())
 							modelEvents.addElement(events.next());
-						jComboBoxEvents.repaint();
-
-						if (!events.hasNext())
-							buttonGorde.setEnabled(false);
-						else
+							jComboBoxEvents.repaint();
 							buttonGorde.setEnabled(true);
 
 					} catch (Exception e1) {
